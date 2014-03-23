@@ -1,0 +1,9 @@
+.donut-chart {
+  width: 600px;
+  height: 400px;
+  margin: 0 auto;
+}
+
+.donut-chart div:first-child{
+  margin: 0 auto;
+}
