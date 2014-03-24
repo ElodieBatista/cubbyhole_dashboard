@@ -1,0 +1,58 @@
+<div class="content-container">
+  <div class="container">
+    <div class="row primary" id="home">
+
+      <div class="row space-top-double">
+        <div class="col-md-12">
+          <h1>Cubbyhole</h1>
+          <h2>Welcome to the Cubbyhole <span class="highlight">Business</span> dashboard</h2>
+        </div>
+      </div>
+
+      <div class="row">
+
+        <div class="col-md-offset-3 col-md-6 home-container-sign">
+          <div ng-if="getProfile() === undefined || getProfile() === null">
+            <ul class="nav nav-tabs" id="sign-nav">
+              <li class="sign-nav-item active"><a data-toggle="tab" href="">Sign In</a></li>
+            </ul>
+
+            <div class="tab-content">
+              <div class="tab-pane active">
+                <form class="sign-form" name="formSignin" method="POST" ng-submit="signin(formSignin)">
+                  <div class="input-prepend" ng-class="{'input-prepend-active': focused0}">
+                    <i class="fa fa-envelope input-icon"></i>
+                    <input class="input-text" type="email" placeholder="Email" required ng-model="formSignin.email" ng-init="focused0 = false" ng-focus="focused0 = true" ng-blur="focused0 = false">
+                  </div>
+                  <div class="input-prepend" ng-class="{'input-prepend-active': focused1}">
+                    <i class="fa fa-lock input-icon"></i>
+                    <input class="input-text" type="password" placeholder="Password" required pattern=".{6,}" title="6 character minimum length" ng-model="formSignin.pass" ng-init="focused1 = false" ng-focus="focused1 = true" ng-blur="focused1 = false">
+                  </div>
+
+                  <input id="home-remember-box" type="checkbox" ng-model="formSignin.rememberMe">
+                  <label class="home-remember-label" for="home-remember-box">Remember me</label>
+
+                  <div id="signin-spinner"></div>
+
+                  <input class="btn primary-btn" type="submit" value="Sign In">
+                </form>
+              </div>
+
+            </div>
+          </div>
+
+          <div id="home-authenticated-container" ng-if="getProfile() !== undefined && getProfile() !== null">
+            <h3 class="home-authenticated-title">Welcome back</h3>
+            <h4 class="highlight home-authenticated-title" id="home-authenticated-title-email" ng-bind="getProfile().email"></h4>
+
+            <p class="home-authenticated-title">You can <a ng-href="#/logout">logout here</a> or</p>
+
+            <a class="btn primary-btn" ng-href="#/users">Launch Business Dashboard</a>
+          </div>
+
+        </div>
+      </div>
+
+    </div>
+  </div>
+</div>

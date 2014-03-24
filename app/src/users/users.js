@@ -7,7 +7,8 @@ module.config(function config($routeProvider) {
     .when('/users',
     {
       templateUrl: '/src/users/users.tpl.html',
-      controller: 'UsersCtrl'
+      controller: 'UsersCtrl',
+      authRequired: true
     })
 });
 

@@ -1,0 +1,23 @@
+<div class="modal fade" id="appmodal" tabindex="-1" role="dialog" aria-labelledby="appmodal" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+
+      <div class="modal-header">
+        <button class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+        <h4 class="modal-title" ng-bind="modalOpts.title"></h4>
+      </div>
+
+      <form role="form" name="modalform" ng-submit="modalOpts.submitFn(modalform, modalOpts.submitFnExtraParam); dismissModal();">
+        <div class="modal-body">
+          <div ng-include src="modalOpts.templateUrl"></div>
+        </div>
+
+        <div class="modal-footer">
+          <button class="btn btn-default" type="button" data-dismiss="modal">Close</button>
+          <input type="submit" class="btn" ng-class="submitBtnClass" ng-value="modalOpts.submitBtnVal" />
+        </div>
+      </form>
+
+    </div>
+  </div>
+</div>
