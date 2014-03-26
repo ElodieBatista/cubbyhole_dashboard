@@ -115,7 +115,7 @@ module.controller('UsersCtrl',
         {
           type: 'column',
           name: 'Payed',
-          color: colorService.pink.normal,
+          color: colorService.red.normal,
           data: [8, 20, 92, 10, 9, 68, 14, 17, 98, 104, 208, 31]
         }
       ],
@@ -123,7 +123,7 @@ module.controller('UsersCtrl',
         {
           type: 'spline',
           name: 'Total Nb of Subscriptions',
-          color: colorService.pink.normal,
+          color: colorService.red.normal,
           data: [100, 135, 136, 166, 170, 230, 275, 155, 405, 513, 863, 1005]
         }
       ]
