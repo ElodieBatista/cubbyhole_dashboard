@@ -2,7 +2,7 @@
 
 var module = angular.module('dashboardApp');
 
-module.directive('donutChart', function() {
+module.directive('donutChart', function(colorService) {
   return {
     restrict: 'E',
     scope: {
@@ -27,7 +27,7 @@ module.directive('donutChart', function() {
 
         // add version data
         for (var j = 0; j < scope.data[i].drilldown.data.length; j++) {
-          var brightness = 0.2 - (j / scope.data[i].drilldown.data.length) / 5 ;
+          var brightness = 0.15 - (j / scope.data[i].drilldown.data.length) / 5 ;
           serie2Data.push({
             name: scope.data[i].drilldown.categories[j],
             y: scope.data[i].drilldown.data[j],

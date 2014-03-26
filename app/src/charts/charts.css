@@ -1,9 +1,46 @@
+.chart-directive {
+  display: block;
+  border: 1px solid rgb(210, 210, 210);
+}
+
+.chart-directive svg > text:last-child > tspan {
+  display: none;
+}
+
+.progression-chart {
+  min-width: 350px;
+  height: 300px;
+  margin: 0 auto;
+  padding-right: 5px;
+}
+
 .donut-chart {
-  width: 500px;
+  min-width: 350px;
   height: 300px;
   margin: 0 auto;
 }
 
 .donut-chart div:first-child{
   margin: 0 auto;
+}
+
+#chart1 {
+  border-top: 3px solid rgb(255, 29, 37);
+}
+
+#chart2,
+#chart6 {
+  border-top: 3px solid rgb(122, 201, 67);
+}
+
+#chart3 {
+  border-top: 3px solid rgb(63, 169, 245);
+}
+
+#chart4 {
+  border-top: 3px solid rgb(255, 147, 30);
+}
+
+#chart5 {
+  border-top: 3px solid rgb(255, 149, 189);
 }

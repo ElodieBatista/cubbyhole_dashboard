@@ -16,7 +16,7 @@ html, body {
 body {
   font-family: "OpenSans-Light", Helvetica, Arial, sans-serif;
   font-size: 14px;
-  padding-top: 50px;
+  padding-top: 80px;
 }
 
 a {
@@ -833,4 +833,8 @@ td:first-child span:hover {
 
 .itemActive td:first-child {
   color: white !important;
+}
+
+.row-horizontal-space {
+  margin-bottom: 30px;
 }
