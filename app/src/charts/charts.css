@@ -1,3 +1,7 @@
+body {
+  background-color: rgb(240, 240, 240);
+}
+
 .chart-directive {
   display: block;
   border: 1px solid rgb(210, 210, 210);
@@ -11,13 +15,14 @@
   min-width: 350px;
   height: 300px;
   margin: 0 auto;
-  padding-right: 5px;
+  padding-right: 1px;
 }
 
 .donut-chart {
-  min-width: 350px;
+  min-width: 300px;
   height: 300px;
   margin: 0 auto;
+  padding-right: 1px;
 }
 
 .donut-chart div:first-child{
@@ -43,4 +48,58 @@
 
 #chart5 {
   border-top: 3px solid rgb(255, 149, 189);
+}
+
+
+.stats-title {
+  margin: 0;
+  text-align: center;
+  color: rgb(255, 255, 255);
+  text-transform: uppercase;
+  padding: 5px;
+}
+
+.stats-nb {
+  margin: 0;
+  text-align: center;
+  color: rgb(255, 255, 255);
+  height: 50px;
+  line-height: 50px;
+  font-size: 25px;
+}
+
+.stats-bloc-red .stats-title {
+  background-color: rgb(254, 80, 81);
+}
+
+.stats-bloc-red .stats-nb {
+  background-color: rgb(255, 29, 37);
+  border-bottom: 3px solid rgb(232, 0, 5);
+}
+
+.stats-bloc-orange .stats-title {
+  background-color: rgb(255, 168, 72);
+}
+
+.stats-bloc-orange .stats-nb {
+  background-color: rgb(255, 147, 30);
+  border-bottom: 3px solid rgb(223, 117, 0);
+}
+
+.stats-bloc-green .stats-title {
+  background-color: rgb(141, 209, 97);
+}
+
+.stats-bloc-green .stats-nb {
+  background-color: rgb(122, 201, 67);
+  border-bottom: 3px solid rgb(98, 172, 49);
+}
+
+.stats-bloc-blue .stats-title {
+  background-color: rgb(95, 182, 245);
+}
+
+.stats-bloc-blue .stats-nb {
+  background-color: rgb(63, 169, 245);
+  border-bottom: 3px solid rgb(11, 125, 210);
 }
