@@ -17,8 +17,8 @@ module.directive('pieChart', function(colorService) {
         enabled: true,
         color: '#000000',
         connectorColor: '#000000',
-        distance: 10,
-        format: '<b>{point.name}</b>: {point.percentage:.1f} %'
+        distance: 22,
+        format: '<b>{point.name}</b>: <br />{point.percentage:.1f} %'
       };
 
       if (attrs.legend) {

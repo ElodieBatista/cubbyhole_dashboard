@@ -63,7 +63,7 @@ module.directive('donutChart', function(colorService) {
                 return this.y > 5 ? this.point.name : null;
               },
               color: 'white',
-              distance: -40
+              distance: -30
             }
           },
           {
@@ -74,7 +74,7 @@ module.directive('donutChart', function(colorService) {
             dataLabels: {
               formatter: function() {
                 // display only if larger than 1
-                return this.y > 1 ? '<b>'+ this.point.name +':</b> '+ this.y +'%' : null;
+                return this.y > 1 ? '<b>'+ this.point.name +':</b><br /> '+ this.y +'%' : null;
               },
               distance: 10
             }
