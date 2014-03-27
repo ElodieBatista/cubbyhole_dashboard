@@ -14,13 +14,17 @@ module.config(function config($routeProvider) {
 
 module.controller('UsersCtrl',
   function UsersCtrl($scope, colorService) {
+    var newUsers = [10, 25, 101, 30, 4, 60, 45, 80, 150, 208, 350, 42];
+    var users = [10, 35, 136, 166, 170, 230, 275, 355, 505, 713, 1063, 1105];
+
+
     $scope.dataChart1 = {
       columns: [
         {
           type: 'column',
           name: 'New Users',
           color: colorService.red.normal,
-          data: [10, 25, 101, 30, 4, 60, 45, 80, 150, 208, 350, 42]
+          data: newUsers
         }
       ],
       lines: [
@@ -28,15 +32,25 @@ module.controller('UsersCtrl',
           type: 'spline',
           name: 'Total Nb of Users',
           color: colorService.red.normal,
-          data: [10, 35, 136, 166, 170, 230, 275, 355, 505, 713, 1063, 1105]
+          data: users
         }
       ]
     };
 
+
+    var nbFree = 1300;
+    var nbPayed = 200;
+    /*var nbPlans = [
+      {
+        name: 'Free',
+
+      }
+    ];*/
+
     $scope.dataChart2 = [
       {
         name: 'Free',
-        y: 60,
+        y: nbFree,
         color: colorService.grey.normal,
         drilldown: {
           name: 'Free',
@@ -47,7 +61,7 @@ module.controller('UsersCtrl',
       },
       {
         name: 'Payed',
-        y: 40,
+        y: nbPayed,
         color: colorService.green.normal,
         drilldown: {
           name: 'Payed',
@@ -63,41 +77,41 @@ module.controller('UsersCtrl',
       {
         name: 'Stayed Free',
         y: 72,
-        color: colorService.blue.normal
+        color: Highcharts.Color(colorService.grey.normal).brighten(0.10).get()
       },
       {
         name: 'Became Paying',
         y: 28,
-        color: Highcharts.Color(colorService.grey.normal).brighten(0.10).get()
+        color: colorService.blue.normal
       }
     ];
 
 
     $scope.dataChart4 = [
       {
-        name: 'Immediately',
+        name: 'Directly',
         y: 10,
         color: colorService.orange.normal,
         sliced: true,
         selected: true
       },
       {
-        name: '1 week',
+        name: '1 wk',
         y: 18,
         color: Highcharts.Color(colorService.orange.normal).brighten(0.10).get()
       },
       {
-        name: '2 to 3 weeks',
+        name: '2-3 wks',
         y: 19,
         color: Highcharts.Color(colorService.orange.normal).brighten(0.20).get()
       },
       {
-        name: '1 to 3 months',
+        name: '1-3 mos',
         y: 22,
         color: colorService.grey.normal
       },
       {
-        name: '4 months and up',
+        name: '4+ mos',
         y: 27,
         color: Highcharts.Color(colorService.grey.normal).brighten(0.15).get()
       }

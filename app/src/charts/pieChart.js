@@ -11,6 +11,23 @@ module.directive('pieChart', function(colorService) {
     },
 
     link: function (scope, element, attrs) {
+      attrs.legend === 'true' ? attrs.legend = true : attrs.legend = false;
+
+      var dataLabels = {
+        enabled: true,
+        color: '#000000',
+        connectorColor: '#000000',
+        distance: 10,
+        format: '<b>{point.name}</b>: {point.percentage:.1f} %'
+      };
+
+      if (attrs.legend) {
+        dataLabels = {
+          enabled: false
+        };
+      }
+
+
       $(element).highcharts({
         chart: {
           plotBackgroundColor: null,
@@ -27,12 +44,8 @@ module.directive('pieChart', function(colorService) {
           pie: {
             allowPointSelect: true,
             cursor: 'pointer',
-            dataLabels: {
-              enabled: true,
-              color: '#000000',
-              connectorColor: '#000000',
-              format: '<b>{point.name}</b>: {point.percentage:.1f} %'
-            }
+            dataLabels: dataLabels,
+            showInLegend: attrs.legend
           }
         },
         series: [{

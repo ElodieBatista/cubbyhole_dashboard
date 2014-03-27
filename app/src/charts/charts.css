@@ -12,7 +12,7 @@ body {
 }
 
 .progression-chart {
-  min-width: 350px;
+  min-width: 300px;
   height: 300px;
   margin: 0 auto;
   padding-right: 1px;
