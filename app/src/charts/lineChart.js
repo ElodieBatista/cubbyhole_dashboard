@@ -15,6 +15,7 @@ module.directive('lineChart', function(colorService) {
         chart: {},
         title: {
           text: scope.title,
+          margin: 30,
           style: {
             fontVariant: 'small-caps',
             fontSize: '18px'

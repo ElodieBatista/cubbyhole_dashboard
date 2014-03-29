@@ -9,6 +9,7 @@ tspan {
 .chart-directive {
   display: block;
   border: 1px solid rgb(210, 210, 210);
+  background-color: rgb(255, 255, 255);
 }
 
 .chart-directive svg > text:last-child > tspan {
@@ -125,18 +126,26 @@ tspan {
   background-color: rgb(255, 29, 37);
 }
 
-.stats-bloc-blue {
-
+.stats-bloc-grey {
   background-color: rgb(200, 200, 200);
 }
 
-.stats-bloc-orange {
-  /*background-color: rgb(255, 147, 30);
-  background-color: rgb(200, 200, 200);*/
+.stats-bloc-blue {
   background-color: rgb(63, 169, 245);
 }
 
-.stats-bloc-green {
-  /*background-color: rgb(122, 201, 67);*/
+.stats-bloc-black {
   background-color: rgb(50, 50, 50);
+}
+
+.stats-bloc-orange {
+  background-color: rgb(255, 147, 30);
+}
+
+.stats-bloc-green {
+  background-color: rgb(122, 201, 67);
+}
+
+.gauge-chart {
+  height: 200px;
 }
