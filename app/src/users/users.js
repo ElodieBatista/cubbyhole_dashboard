@@ -38,8 +38,8 @@ module.controller('UsersCtrl',
     };
 
 
-    var nbFree = 1300;
-    var nbPayed = 200;
+    var nbFree = 60;
+    var nbPayed = 40;
     /*var nbPlans = [
       {
         name: 'Free',
@@ -55,19 +55,19 @@ module.controller('UsersCtrl',
         drilldown: {
           name: 'Free',
           categories: ['Free 1', 'Free 2'],
-          data: [25, 35],
+          data: [50, 10],
           color: colorService.grey.normal
         }
       },
       {
         name: 'Payed',
         y: nbPayed,
-        color: colorService.green.normal,
+        color: colorService.blue.normal,
         drilldown: {
           name: 'Payed',
           categories: ['Pro', 'Business', 'Enterprise'],
-          data: [10, 15, 15],
-          color: colorService.green.normal
+          data: [10, 13, 17],
+          color: colorService.blue.normal
         }
       }
     ];
@@ -82,7 +82,7 @@ module.controller('UsersCtrl',
       {
         name: 'Became Paying',
         y: 28,
-        color: colorService.blue.normal
+        color: colorService.red.normal
       }
     ];
 
@@ -91,19 +91,19 @@ module.controller('UsersCtrl',
       {
         name: 'Directly',
         y: 10,
-        color: colorService.orange.normal,
+        color: colorService.red.normal,
         sliced: true,
         selected: true
       },
       {
         name: '1 wk',
         y: 18,
-        color: Highcharts.Color(colorService.orange.normal).brighten(0.10).get()
+        color: Highcharts.Color(colorService.red.normal).brighten(0.10).get()
       },
       {
         name: '2-3 wks',
         y: 19,
-        color: Highcharts.Color(colorService.orange.normal).brighten(0.20).get()
+        color: Highcharts.Color(colorService.red.normal).brighten(0.20).get()
       },
       {
         name: '1-3 mos',
@@ -123,13 +123,13 @@ module.controller('UsersCtrl',
         {
           type: 'column',
           name: 'Free',
-          color: colorService.grey.normal,
+          color: colorService.black.normal,
           data: [10, 25, 101, 30, 4, 60, 45, 80, 150, 208, 350, 42]
         },
         {
           type: 'column',
           name: 'Payed',
-          color: colorService.red.normal,
+          color: colorService.blue.normal,
           data: [8, 20, 92, 10, 9, 68, 14, 17, 98, 104, 208, 31]
         }
       ],
@@ -137,7 +137,7 @@ module.controller('UsersCtrl',
         {
           type: 'spline',
           name: 'Total Nb of Subscriptions',
-          color: colorService.red.normal,
+          color: colorService.blue.normal,
           data: [100, 135, 136, 166, 170, 230, 275, 155, 405, 513, 863, 1005]
         }
       ]
@@ -152,12 +152,12 @@ module.controller('UsersCtrl',
       },
       {
         name: 'Pro',
-        color: colorService.green.normal,
+        color: colorService.blue.normal,
         data: [2, 2, 3, 2, 1, 6, 2, 9, 2, 1, 10, 12]
       },
       {
         name: 'Business',
-        color: Highcharts.Color(colorService.green.normal).brighten(0.10).get(),
+        color: Highcharts.Color(colorService.blue.normal).brighten(0.10).get(),
         data: [3, 4, 4, 2, 5, 2, 4, 14, 2, 5, 7, 8]
       }
     ];

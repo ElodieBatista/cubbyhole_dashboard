@@ -1,5 +1,13 @@
 <div class="row">
-  <div class="col-md-12">
-    <donut-chart class="donut-chart" title="'User plan share'" serie1-name="'Plans'" serie2-name="'Versions'" data="data"></donut-chart>
+  <div class="col-md-offset-1 col-md-3">
+    <line-chart class="chart-directive progression-chart" title="'Plans Storage Usage'" data="dataChart1"></line-chart>
+  </div>
+
+  <div class="col-md-4">
+    <line-chart class="chart-directive progression-chart" title="namePlanMostExp + ' Plan Usage'" data="dataChart2"></line-chart>
+  </div>
+
+  <div class="col-md-3">
+    <line-chart class="chart-directive progression-chart" title="'Plans Bandwidth Usage'" data="dataChart3"></line-chart>
   </div>
 </div>

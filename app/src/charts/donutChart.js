@@ -42,7 +42,11 @@ module.directive('donutChart', function(colorService) {
           type: 'pie'
         },
         title: {
-          text: scope.title
+          text: scope.title,
+          style: {
+            fontVariant: 'small-caps',
+            fontSize: '18px'
+          }
         },
         plotOptions: {
           pie: {
@@ -74,7 +78,7 @@ module.directive('donutChart', function(colorService) {
             dataLabels: {
               formatter: function() {
                 // display only if larger than 1
-                return this.y > 1 ? '<b>'+ this.point.name +':</b><br /> '+ this.y +'%' : null;
+                return this.y > 1 ? this.point.name +':<br /> '+ this.y +'%' : null;
               },
               distance: 10
             }

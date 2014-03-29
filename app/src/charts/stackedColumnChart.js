@@ -16,7 +16,12 @@ module.directive('stackedColumnChart', function(colorService) {
           type: 'column'
         },
         title: {
-          text: scope.title
+          text: scope.title,
+          margin: 30,
+          style: {
+            fontVariant: 'small-caps',
+            fontSize: '18px'
+          }
         },
         xAxis: {
           categories: ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec']

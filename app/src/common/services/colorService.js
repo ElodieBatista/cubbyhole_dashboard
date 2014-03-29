@@ -33,6 +33,11 @@ module.factory('colorService', function() {
       normal: 'rgb(180, 180, 180)',
       light: 'rgb(210, 210, 210)',
       dark: ''
+    },
+    black: {
+      normal: 'rgb(50, 50, 50)',
+      light: '',
+      dark: ''
     }
   };
 });

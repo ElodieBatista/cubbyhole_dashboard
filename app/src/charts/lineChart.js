@@ -14,7 +14,11 @@ module.directive('lineChart', function(colorService) {
       $(element).highcharts({
         chart: {},
         title: {
-          text: scope.title
+          text: scope.title,
+          style: {
+            fontVariant: 'small-caps',
+            fontSize: '18px'
+          }
         },
         tooltip: {
           valueSuffix: '%'

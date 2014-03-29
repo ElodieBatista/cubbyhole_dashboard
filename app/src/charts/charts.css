@@ -2,6 +2,10 @@ body {
   background-color: rgb(240, 240, 240);
 }
 
+tspan {
+  font-family: "OpenSans-Light", Helvetica, Arial, sans-serif;
+}
+
 .chart-directive {
   display: block;
   border: 1px solid rgb(210, 210, 210);
@@ -37,7 +41,7 @@ body {
   border-top: 3px solid rgb(122, 201, 67);
 }
 
-.chart-border-green {
+.chart-border-blue {
   border-top: 3px solid rgb(63, 169, 245);
 }
 
@@ -45,24 +49,43 @@ body {
   border-top: 3px solid rgb(255, 147, 30);
 }
 
+.chart-border-grey {
+  border-top: 3px solid rgb(150, 150, 150);
+}
+
+.chart-border-black {
+  border-top: 3px solid rgb(50, 50, 50);
+}
+
+.stats-bloc {
+  height: 100px;
+  color: white;
+}
+
 .stats-title {
   margin: 0;
-  text-align: center;
   color: rgb(255, 255, 255);
   text-transform: uppercase;
-  padding: 5px;
+  padding: 10px;
 }
 
 .stats-nb {
   margin: 0;
-  text-align: center;
   color: rgb(255, 255, 255);
   height: 50px;
   line-height: 50px;
-  font-size: 25px;
+  font-size: 32px;
+  padding-left: 10px;
 }
 
-.stats-bloc-red .stats-title {
+.stats-img {
+  position: absolute;
+  right: 55px;
+  top: 33px;
+  font-size: 40px;
+}
+
+/*.stats-bloc-red .stats-title {
   background-color: rgb(254, 80, 81);
 }
 
@@ -96,4 +119,24 @@ body {
 .stats-bloc-blue .stats-nb {
   background-color: rgb(63, 169, 245);
   border-bottom: 3px solid rgb(11, 125, 210);
+}*/
+
+.stats-bloc-red {
+  background-color: rgb(255, 29, 37);
+}
+
+.stats-bloc-blue {
+
+  background-color: rgb(200, 200, 200);
+}
+
+.stats-bloc-orange {
+  /*background-color: rgb(255, 147, 30);
+  background-color: rgb(200, 200, 200);*/
+  background-color: rgb(63, 169, 245);
+}
+
+.stats-bloc-green {
+  /*background-color: rgb(122, 201, 67);*/
+  background-color: rgb(50, 50, 50);
 }

@@ -18,7 +18,7 @@ module.directive('pieChart', function(colorService) {
         color: '#000000',
         connectorColor: '#000000',
         distance: 22,
-        format: '<b>{point.name}</b>: <br />{point.percentage:.1f} %'
+        format: '{point.name}: <br />{point.percentage:.1f} %'
       };
 
       if (attrs.legend) {
@@ -35,7 +35,11 @@ module.directive('pieChart', function(colorService) {
           plotShadow: false
         },
         title: {
-          text: scope.title
+          text: scope.title,
+          style: {
+            fontVariant: 'small-caps',
+            fontSize: '18px'
+          }
         },
         tooltip: {
           pointFormat: '{series.name}: <b>{point.percentage:.1f}%</b>'

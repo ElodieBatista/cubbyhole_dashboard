@@ -7,7 +7,8 @@ angular.module('dashboardApp', [
     'ngAnimate'
   ])
   .constant('conf', {
-    'epApi': 'http://localhost:3000'
+    'epApi': 'http://localhost:3000',
+    'epWeb': 'http://localhost:8000'
   })
   .config(function(conf, $locationProvider, $httpProvider, $routeProvider, $sceDelegateProvider, $provide) {
     $httpProvider.defaults.headers.common['X-Cub-AuthToken'] = localStorage.getItem('cubbyhole-dashboardApp-token');
@@ -53,7 +54,9 @@ angular.module('dashboardApp', [
 
     $sceDelegateProvider.resourceUrlWhitelist([conf.epApi + '**', 'self'])
   })
-  .run(function($rootScope, $location, $window) {
+  .run(function(conf, $rootScope, $location) {
+    $rootScope.conf = conf;
+
     $rootScope.$on('$routeChangeStart', function(event, next, current) {
       if (next.authRequired === true && !$rootScope.getToken()) {
         $location.path('/login');
