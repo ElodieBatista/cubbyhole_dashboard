@@ -16,6 +16,10 @@ tspan {
   display: none;
 }
 
+.map-directive a[href="http://www.ammap.com/javascript-maps/"] {
+  display: none !important;
+}
+
 .progression-chart {
   min-width: 300px;
   height: 300px;
@@ -86,42 +90,6 @@ tspan {
   font-size: 40px;
 }
 
-/*.stats-bloc-red .stats-title {
-  background-color: rgb(254, 80, 81);
-}
-
-.stats-bloc-red .stats-nb {
-  background-color: rgb(255, 29, 37);
-  border-bottom: 3px solid rgb(232, 0, 5);
-}
-
-.stats-bloc-orange .stats-title {
-  background-color: rgb(255, 168, 72);
-}
-
-.stats-bloc-orange .stats-nb {
-  background-color: rgb(255, 147, 30);
-  border-bottom: 3px solid rgb(223, 117, 0);
-}
-
-.stats-bloc-green .stats-title {
-  background-color: rgb(141, 209, 97);
-}
-
-.stats-bloc-green .stats-nb {
-  background-color: rgb(122, 201, 67);
-  border-bottom: 3px solid rgb(98, 172, 49);
-}
-
-.stats-bloc-blue .stats-title {
-  background-color: rgb(95, 182, 245);
-}
-
-.stats-bloc-blue .stats-nb {
-  background-color: rgb(63, 169, 245);
-  border-bottom: 3px solid rgb(11, 125, 210);
-}*/
-
 .stats-bloc-red {
   background-color: rgb(255, 29, 37);
 }
@@ -148,4 +116,8 @@ tspan {
 
 .gauge-chart {
   height: 200px;
+}
+
+.map-directive {
+  display: block;
 }
