@@ -5,7 +5,7 @@ var module = angular.module('dashboardApp');
 /**
  * Displays a modal with an error msg corresponding to the route and the status
  */
-module.directive('error', function() {
+module.directive('error', function(apiService) {
   return {
     restrict: 'A',
 
@@ -14,81 +14,8 @@ module.directive('error', function() {
         custom: {
           0: 'Impossible to upload these items: '
         },
-
         500: 'Something went wrong. Please, try again later.',
-        400: 'The request is not recognized. Please, try again later.',
-
-        item: {
-          GET: {
-            403: 'You are not allowed to access this item.',
-            404: 'This item doesn\'t exist.',
-            405: 'You can\'t download this folder because it is empty.'
-          },
-          POST: {
-            404: 'This item doesn\'t exist.',
-            422: 'This item\'s parent doesn\'t exist.'
-          },
-          DELETE: {
-            403: 'You are not allowed to delete this item.',
-            404: 'This item doesn\'t exist.'
-          },
-          PUT: {
-            401: 'You are not authorized to update this item.',
-            404: 'This item doesn\'t exist.'
-          }
-        },
-
-        share: {
-          POST: {
-            403: 'You are not allowed to access this item.',
-            404: 'This item doesn\'t exist.',
-            422: 'One or several of the members you entered are not Cubbyhole users.'
-          },
-          DELETE: {
-            404: 'This item doesn\'t exist.'
-          },
-          PUT: {
-            404: 'This item doesn\'t exist.'
-          }
-        },
-
-        link: {
-          POST: {
-            403: 'You are not allowed to access this item.',
-            404: 'This item doesn\'t exist.'
-          },
-          DELETE: {
-            404: 'This item doesn\'t exist.'
-          },
-          PUT: {
-            404: 'This item doesn\'t exist.'
-          }
-        },
-
-        notification: {
-          DELETE: {
-            403: 'You are not allowed to delete this notification.',
-            404: 'This notification doesn\'t exist.'
-          }
-        },
-
-        user: {
-          GET: {
-            404: 'This user doesn\'t exist.'
-          },
-          PUT: {
-            404: 'This user doesn\'t exist.'
-          }
-        },
-
-        plan: {
-          GET: {
-            404: 'This plan doesn\'t exist.'
-          },
-          DELETE: {
-            404: 'This plan doesn\'t exist.'
-          }
-        }
+        400: 'The request is not recognized. Please, try again later.'
       };
 
 
@@ -106,7 +33,11 @@ module.directive('error', function() {
 
           var route;
 
-          if (error.status !== 500) {
+          if (error.status === 500) {
+            errorText = errors['500'];
+          } else if (error.status === 400) {
+            errorText = errors['400'];
+          } else {
             var pos1 = error.config.url.indexOf('/');
             var pos2 = error.config.url.indexOf('/', pos1 + 1);
 
@@ -115,9 +46,8 @@ module.directive('error', function() {
             } else {
               route = error.config.url.substring(pos1 + 1, pos2);
             }
-            errorText = errors[route][error.config.method][error.status];
-          } else {
-            errorText = errors['500'];
+            route = route.charAt(0).toUpperCase() + route.slice(1);
+            errorText = apiService[route + 'Error'][error.config.method][error.status];
           }
         }
 
