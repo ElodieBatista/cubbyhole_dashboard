@@ -1,7 +1,35 @@
-/**
- * Created with JetBrains WebStorm.
- * User: Elodie
- * Date: 3/28/14
- * Time: 9:32 AM
- * To change this template use File | Settings | File Templates.
- */
+'use strict';
+
+var module = angular.module('dashboardApp');
+
+module.directive('lineChart', function(colorService) {
+  return {
+    restrict: 'E',
+    scope: {
+      title: '=',
+      data: '='
+    },
+
+    link: function (scope, element, attrs) {
+      $(element).highcharts({
+        chart: {},
+        title: {
+          text: scope.title
+        },
+        tooltip: {
+          valueSuffix: '%'
+        },
+        xAxis: {
+          categories: ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec']
+        },
+        yAxis: {
+          min: 0,
+          title: {
+            text: ''
+          }
+        },
+        series: scope.data
+      });
+    }
+  };
+});

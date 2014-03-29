@@ -28,13 +28,13 @@
         <nav class="collapse navbar-collapse bs-navbar-collapse navtop-items-container" ng-if="getProfile() !== undefined && getProfile() !== null" role="navigation">
           <ul class="nav navbar-nav navbar-right navtop-items-list">
             <li class="navtop-item" ng-class="{ active: isActive('/users')}">
-              <a href="index.html#/users">Users</a>
+              <a href="index.html#/users" onclick="collapseNavbar();">Users</a>
             </li>
             <li class="navtop-item" ng-class="{ active: isActive('/plans')}">
-              <a href="index.html#/plans">Plans</a>
+              <a href="index.html#/plans" onclick="collapseNavbar();">Plans</a>
             </li>
             <li class="navtop-item" ng-class="{ active: isActive('/locations')}">
-              <a href="index.html#/locations">Locations</a>
+              <a href="index.html#/locations" onclick="collapseNavbar();">Locations</a>
             </li>
             <li class="navtop-item dropdown">
               <a data-toggle="dropdown" href="">Me &nbsp;&nbsp;<i class="fa fa-angle-down"></i></a>
@@ -49,7 +49,7 @@
         <nav class="collapse navbar-collapse bs-navbar-collapse navtop-items-container" ng-if="getProfile() === undefined || getProfile() === null" role="navigation">
           <ul class="nav navbar-nav navbar-right navtop-items-list">
             <li class="navtop-item active">
-              <a href="">Home</a>
+              <a href="" onclick="collapseNavbar();">Home</a>
             </li>
           </ul>
         </nav>
@@ -64,6 +64,7 @@
     <modal error id="errormodal" modal-opts="modalOpts" modalform="modalform" modal-color="'primary'"></modal>
 
     <script src="src/lib/jquery/jquery-1.11.0.min.js"></script>
+    <script src="src/lib/custom/navbar-init.js"></script>
     <script src="src/lib/bootstrap/bootstrap-3.0.3-complete.min.js"></script>
     <script src="src/lib/spinjs/spin.js"></script>
     <script src="src/lib/angular/angular.min.js"></script>
@@ -89,5 +90,6 @@
     <script src="src/charts/donutChart.js"></script>
     <script src="src/charts/pieChart.js"></script>
     <script src="src/charts/stackedColumnChart.js"></script>
+    <script src="src/charts/lineChart.js"></script>
   </body>
 </html>

@@ -29,21 +29,19 @@ body {
   margin: 0 auto;
 }
 
-#chart1,
-#chart5 {
+.chart-border-red {
   border-top: 3px solid rgb(255, 29, 37);
 }
 
-#chart2,
-#chart6 {
+.chart-border-green {
   border-top: 3px solid rgb(122, 201, 67);
 }
 
-#chart3 {
+.chart-border-green {
   border-top: 3px solid rgb(63, 169, 245);
 }
 
-#chart4 {
+.chart-border-orange {
   border-top: 3px solid rgb(255, 147, 30);
 }
 
