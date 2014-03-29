@@ -3,17 +3,24 @@ cubbyhole_dashboard
 
 # Getting started
 
-## To test without AngularJS:
-
-	Just open index.html
-
-
-## To test with AngularJS
-
-Git bash on the root folder
+Git bash on the "app" folder
 
 	node web-server.js
 
-Open
+Launch browser at 
+	
+	http://localhost:8002/index.html
 
-	http://localhost:8002/index-ng.html#/users
+Credentials:
+
+	cubbyholeadm@gmail.com
+	Supinf0cubbyhole
+
+# Changing IP Addresses
+
+Go to /src/app.js & replace lines 10 and 11
+
+	.constant('conf', {
+    		'epApi': 'http://localhost:3000',
+    		'epWeb': 'http://localhost:8000'
+  	})
