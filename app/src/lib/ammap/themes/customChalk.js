@@ -1,6 +1,6 @@
-AmCharts.themes.customTheme = {
+AmCharts.themes.customChalk = {
 
-  themeName: "customTheme",
+  themeName: "customChalk",
 
   AmChart: {
     color: "#e7e7e7",

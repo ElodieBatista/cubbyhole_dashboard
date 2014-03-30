@@ -71,7 +71,7 @@ module.directive('mapChart', function(colorService) {
         }
       ];
 
-      // Nb total of users
+
       var max = 0,
           sum = 0;
       for (var i = 0, l = data.length; i < l; i++) {
@@ -113,7 +113,7 @@ module.directive('mapChart', function(colorService) {
 
       var map = AmCharts.makeChart('location-map', {
         type: 'map',
-        theme: 'customTheme',
+        theme: 'customChalk',
         pathToImages: '/src/lib/ammap/images/',
 
         dataProvider: {
