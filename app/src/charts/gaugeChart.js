@@ -6,7 +6,7 @@ module.directive('gaugeChart', function(colorService) {
   return {
     restrict: 'E',
     scope: {
-      title: '=',
+      titleChart: '=',
       data: '='
     },
 
@@ -25,7 +25,7 @@ module.directive('gaugeChart', function(colorService) {
           type: 'gauge'
         },
         title: {
-          text: scope.title,
+          text: scope.titleChart,
           style: {
             fontVariant: 'small-caps',
             fontSize: '18px'

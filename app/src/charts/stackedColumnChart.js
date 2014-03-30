@@ -2,11 +2,11 @@
 
 var module = angular.module('dashboardApp');
 
-module.directive('stackedColumnChart', function(colorService) {
+module.directive('stackedColumnChart', function() {
   return {
     restrict: 'E',
     scope: {
-      title: '=',
+      titleChart: '=',
       data: '='
     },
 
@@ -16,7 +16,7 @@ module.directive('stackedColumnChart', function(colorService) {
           type: 'column'
         },
         title: {
-          text: scope.title,
+          text: scope.titleChart,
           margin: 30,
           style: {
             fontVariant: 'small-caps',

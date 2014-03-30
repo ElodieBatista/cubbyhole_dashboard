@@ -2,11 +2,11 @@
 
 var module = angular.module('dashboardApp');
 
-module.directive('columnLineChart', function(colorService) {
+module.directive('columnLineChart', function() {
   return {
     restrict: 'E',
     scope: {
-      title: '=',
+      titleChart: '=',
       data: '='
     },
 
@@ -24,7 +24,7 @@ module.directive('columnLineChart', function(colorService) {
       $(element).highcharts({
         chart: {},
         title: {
-          text: scope.title,
+          text: scope.titleChart,
           margin: 30,
           style: {
             fontVariant: 'small-caps',

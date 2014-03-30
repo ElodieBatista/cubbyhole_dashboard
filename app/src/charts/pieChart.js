@@ -2,11 +2,12 @@
 
 var module = angular.module('dashboardApp');
 
-module.directive('pieChart', function(colorService) {
+module.directive('pieChart', function() {
   return {
     restrict: 'E',
     scope: {
-      title: '=',
+      titleChart: '=',
+      subtitle: '=',
       data: '='
     },
 
@@ -35,14 +36,14 @@ module.directive('pieChart', function(colorService) {
           plotShadow: false
         },
         title: {
-          text: scope.title,
+          text: scope.titleChart,
           style: {
             fontVariant: 'small-caps',
             fontSize: '18px'
           }
         },
         tooltip: {
-          pointFormat: '{series.name}: <b>{point.percentage:.1f}%</b>'
+          pointFormat: '{series.name}: <b>{point.y} ({point.percentage:.1f}%)</b>'
         },
         plotOptions: {
           pie: {
@@ -54,7 +55,7 @@ module.directive('pieChart', function(colorService) {
         },
         series: [{
           type: 'pie',
-          name: 'Browser share',
+          name: scope.subtitle,
           data: scope.data
         }]
       });
