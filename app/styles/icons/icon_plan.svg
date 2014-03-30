@@ -1,14 +1,14 @@
 <svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
 	 width="100px" height="100px" viewBox="0 0 100 100" enable-background="new 0 0 100 100" xml:space="preserve">
-    <g>
-        <rect x="62.853" y="20.076" fill="#FFFFFF" width="17.137" height="17.136"/>
-        <rect x="62.853" y="41.496" fill="#FFFFFF" width="17.137" height="17.138"/>
-        <rect x="41.433" y="20.076" fill="#FFFFFF" width="17.136" height="17.136"/>
-        <rect x="41.433" y="41.496" fill="#FFFFFF" width="17.136" height="17.138"/>
-        <rect x="20.011" y="20.076" fill="#FFFFFF" width="17.137" height="17.136"/>
-        <rect x="20.011" y="41.496" fill="#FFFFFF" width="17.137" height="17.138"/>
-        <rect x="62.853" y="62.79" fill="#FFFFFF" width="17.137" height="17.134"/>
-        <rect x="41.433" y="62.79" fill="#FFFFFF" width="17.136" height="17.134"/>
-        <rect x="20.011" y="62.79" fill="#FFFFFF" width="17.137" height="17.134"/>
-    </g>
+	<g>
+		<rect x="86.051" y="31.208" fill="#FFFFFF" width="13.949" height="13.949"/>
+		<rect x="86.051" y="48.644" fill="#FFFFFF" width="13.949" height="13.95"/>
+		<rect x="68.614" y="31.208" fill="#FFFFFF" width="13.948" height="13.949"/>
+		<rect x="68.614" y="48.644" fill="#FFFFFF" width="13.948" height="13.95"/>
+		<rect x="51.176" y="31.208" fill="#FFFFFF" width="13.95" height="13.949"/>
+		<rect x="51.176" y="48.644" fill="#FFFFFF" width="13.95" height="13.95"/>
+		<rect x="86.051" y="65.977" fill="#FFFFFF" width="13.949" height="13.947"/>
+		<rect x="68.614" y="65.977" fill="#FFFFFF" width="13.948" height="13.947"/>
+		<rect x="51.176" y="65.977" fill="#FFFFFF" width="13.95" height="13.947"/>
+	</g>
 </svg>

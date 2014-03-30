@@ -1,7 +1,7 @@
 <svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
 	 width="100px" height="100px" viewBox="0 0 100 100" enable-background="new 0 0 100 100" xml:space="preserve">
-    <g>
-        <polygon fill="#FFFFFF" stroke="#FFFFFF" stroke-miterlimit="10" points="48.947,23.667 48.947,72.301 25.422,48.775
-            23.934,50.268 48.516,74.846 50.001,76.333 51.487,74.846 76.066,50.268 74.582,48.775 51.057,72.301 51.057,23.667 	"/>
-    </g>
+	<g>
+		<polygon fill="#FFFFFF" stroke="#FFFFFF" stroke-miterlimit="10" points="72.881,23.667 72.881,72.301 49.355,48.775 
+			47.868,50.268 72.449,74.846 73.935,76.333 75.42,74.846 100,50.268 98.516,48.775 74.99,72.301 74.99,23.667 	"/>
+	</g>
 </svg>
