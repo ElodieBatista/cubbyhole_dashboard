@@ -3,7 +3,7 @@
     <div class="stats-bloc stats-bloc-red">
       <p class="stats-title">Users</p>
       <p class="stats-nb">1095</p>
-      <span class="stats-img"><i class="fa fa-users"></i></span>
+      <img class="stats-img" src="styles/icons/icon_users.svg" />
     </div>
   </div>
 
@@ -11,7 +11,7 @@
     <div class="stats-bloc stats-bloc-grey">
       <p class="stats-title">New Users Today</p>
       <p class="stats-nb">85</p>
-      <span class="stats-img"><i class="fa fa-star"></i></span>
+      <img class="stats-img" src="styles/icons/icon_newuser.svg" />
     </div>
   </div>
 
@@ -19,7 +19,7 @@
     <div class="stats-bloc stats-bloc-blue">
       <p class="stats-title">Subscriptions Today</p>
       <p class="stats-nb">40</p>
-      <span class="stats-img"><i class="fa fa-check"></i></span>
+      <img class="stats-img" src="styles/icons/icon_check.svg" />
     </div>
   </div>
 
@@ -27,37 +27,37 @@
     <div class="stats-bloc stats-bloc-black">
       <p class="stats-title">New Paying Users Today</p>
       <p class="stats-nb">12</p>
-      <span class="stats-img"><i class="fa fa-money"></i></span>
+      <img class="stats-img" src="styles/icons/icon_dollar.svg" />
     </div>
   </div>
 </div>
 
 <div class="row row-horizontal-space">
   <div class="col-md-6">
-    <column-line-chart class="chart-directive progression-chart chart-border-red" title="'Users - Progression'" data="dataChart1"></column-line-chart>
+    <column-line-chart class="chart-directive chart chart-border-red" title="'Users - Progression'" data="dataChart1"></column-line-chart>
   </div>
 
   <div class="col-md-6">
-    <donut-chart class="chart-directive donut-chart chart-border-blue" title="'User plan share'" serie1-name="'Plans'" serie2-name="'Versions'" data="dataChart2"></donut-chart>
-  </div>
-</div>
-
-<div class="row row-horizontal-space">
-  <div class="col-md-6">
-    <pie-chart class="chart-directive donut-chart chart-border-grey" title="'Delay to become a paying user'" data="dataChart4" legend="false"></pie-chart>
-  </div>
-
-  <div class="col-md-6">
-    <column-line-chart class="chart-directive progression-chart chart-border-black" title="'Plans Subscriptions - Progression'" data="dataChart5"></column-line-chart>
+    <donut-chart class="chart-directive chart chart-border-blue" title="'User plan share'" serie1-name="'Plans'" serie2-name="'Versions'" data="dataChart2"></donut-chart>
   </div>
 </div>
 
 <div class="row row-horizontal-space">
   <div class="col-md-6">
-    <pie-chart class="chart-directive donut-chart chart-border-red" title="'Users stayed free vs Users became paying'" data="dataChart3" legend="true"></pie-chart>
+    <pie-chart class="chart-directive chart chart-border-grey" title="'Delay to become a paying user'" data="dataChart4" legend="false"></pie-chart>
   </div>
 
   <div class="col-md-6">
-    <stacked-column-chart class="chart-directive progression-chart chart-border-blue" title="'User Plan Share - Progression'" data="dataChart6"></stacked-column-chart>
+    <column-line-chart class="chart-directive chart chart-border-black" title="'Plans Subscriptions - Progression'" data="dataChart5"></column-line-chart>
+  </div>
+</div>
+
+<div class="row row-horizontal-space">
+  <div class="col-md-6">
+    <pie-chart class="chart-directive chart chart-border-red" title="'Users stayed free vs Users became paying'" data="dataChart3" legend="true"></pie-chart>
+  </div>
+
+  <div class="col-md-6">
+    <stacked-column-chart class="chart-directive chart chart-border-blue" title="'User Plan Share - Progression'" data="dataChart6"></stacked-column-chart>
   </div>
 </div>

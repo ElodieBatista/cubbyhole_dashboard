@@ -7,37 +7,11 @@ module.directive('mapChart', function(colorService) {
     restrict: 'E',
     scope: {
       title: '=',
+      color: '=',
       data: '='
     },
 
     link: function (scope, element, attrs) {
-      var data = [
-        {
-          name: 'africa',
-          value: 10
-        },
-        {
-          name: 'asia',
-          value: 172
-        },
-        {
-          name: 'australia',
-          value: 517
-        },
-        {
-          name: 'europe',
-          value: 824
-        },
-        {
-          name: 'north_america',
-          value: 950
-        },
-        {
-          name: 'south_america',
-          value: 23
-        }
-      ];
-
       var coordinates = [
         {
           name: 'africa',
@@ -72,42 +46,39 @@ module.directive('mapChart', function(colorService) {
       ];
 
 
-      var max = 0,
-          sum = 0;
-      for (var i = 0, l = data.length; i < l; i++) {
-        if (data[i].value > max) {
-          max = data[i].value;
+      var max = 0, sum = 0;
+      for (var i = 0, l = scope.data.length; i < l; i++) {
+        if (scope.data[i].value > max) {
+          max = scope.data[i].value;
         }
-        sum += data[i].value;
+        sum += scope.data[i].value;
       }
 
       var areas = [],
           images = [];
-      for (var j = 0, le = data.length; j < le; j++) {
-        var percent = ((data[j].value * 100) / max) / 100;
-        console.log(percent);
+      for (var j = 0, le = scope.data.length; j < le; j++) {
         areas.push({
-          id: data[j].name,
-          value: data[j].value,
+          id: scope.data[j].name,
+          value: scope.data[j].value,
           outlineColor: colorService.grey.normal,
           outlineAlpha: 1,
-          color: 'rgba(0, 0, 0, ' + percent + ')'
+          color: 'rgba(0, 0, 0, ' + ((scope.data[j].value * 100) / max) / 100 + ')'
         });
-        data[j].percent = Math.round((data[j].value * 100) / sum);
-        data[j].scale = data[j].percent / 10;
+        scope.data[j].percent = Math.round((scope.data[j].value * 100) / sum);
+        scope.data[j].scale = scope.data[j].percent / 10;
 
-        if (data[j].scale < 1) {
-          data[j].scale = 1;
+        if (scope.data[j].scale < 1) {
+          scope.data[j].scale = 1;
         }
 
         images.push({
           latitude: coordinates[j].latitude,
           longitude: coordinates[j].longitude,
           type: 'circle',
-          color:'#EC7C00',
-          scale: data[j].scale.toString(),
-          label: data[j].percent + '%',
-          labelColor: (data[j].percent <= 10 ? '#EC7C00' : '#FFFFFF')
+          color: scope.color,
+          scale: scope.data[j].scale.toString(),
+          label: scope.data[j].percent + '%',
+          labelColor: (scope.data[j].percent <= 10 ? scope.color : colorService.white.normal)
         });
       }
 
@@ -115,12 +86,13 @@ module.directive('mapChart', function(colorService) {
         type: 'map',
         theme: 'customChalk',
         pathToImages: '/src/lib/ammap/images/',
+        mouseWheelZoomEnabled: true,
 
         dataProvider: {
           map: 'continentsLow',
           zoomLevel: 1,
           areas: areas,
-          images:images
+          images: images
         },
         areasSettings: {
           autoZoom: false,
@@ -132,6 +104,8 @@ module.directive('mapChart', function(colorService) {
           maxValue: max
         }
       });
+
+      map.addLabel(0, 605, scope.title, 'center', '30', scope.color, 0, 1, false);
     }
   };
 });

@@ -17,7 +17,7 @@ module.factory('colorService', function() {
     orange: {
       normal: 'rgb(255, 147, 30)',
       light: '',
-      dark: ''
+      dark: 'rgb(236, 124, 0)'
     },
     green: {
       normal: 'rgb(122, 201, 67)',
@@ -38,6 +38,9 @@ module.factory('colorService', function() {
       normal: 'rgb(50, 50, 50)',
       light: '',
       dark: ''
+    },
+    white: {
+      normal: 'rgb(255, 255, 255)'
     }
   };
 });

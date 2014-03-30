@@ -20,47 +20,29 @@ tspan {
   display: none !important;
 }
 
-.progression-chart {
+.chart {
   min-width: 300px;
   height: 300px;
   margin: 0 auto;
   padding-right: 1px;
 }
 
-.donut-chart {
-  min-width: 300px;
-  height: 300px;
-  margin: 0 auto;
-  padding-right: 1px;
+.gauge-chart {
+  height: 200px;
 }
 
-.donut-chart div:first-child{
-  margin: 0 auto;
+.map-directive {
+  width: 1000px;
+  height: 650px;
+  margin:0 auto;
 }
 
-.chart-border-red {
-  border-top: 3px solid rgb(255, 29, 37);
-}
-
-.chart-border-green {
-  border-top: 3px solid rgb(122, 201, 67);
-}
-
-.chart-border-blue {
-  border-top: 3px solid rgb(63, 169, 245);
-}
-
-.chart-border-orange {
-  border-top: 3px solid rgb(255, 147, 30);
-}
-
-.chart-border-grey {
-  border-top: 3px solid rgb(150, 150, 150);
-}
-
-.chart-border-black {
-  border-top: 3px solid rgb(50, 50, 50);
-}
+.chart-border-red     { border-top: 3px solid rgb(255, 29, 37);     }
+.chart-border-green   { border-top: 3px solid rgb(122, 201, 67);    }
+.chart-border-blue    {  border-top: 3px solid rgb(63, 169, 245);   }
+.chart-border-orange  {  border-top: 3px solid rgb(255, 147, 30);   }
+.chart-border-grey    {  border-top: 3px solid rgb(150, 150, 150);  }
+.chart-border-black   { border-top: 3px solid rgb(50, 50, 50);      }
 
 .stats-bloc {
   height: 100px;
@@ -85,44 +67,15 @@ tspan {
 
 .stats-img {
   position: absolute;
-  right: 55px;
-  top: 33px;
+  right: 45px;
+  top: 25px;
   font-size: 40px;
+  width: 70px;
 }
 
-.stats-bloc-red {
-  background-color: rgb(255, 29, 37);
-}
-
-.stats-bloc-grey {
-  background-color: rgb(200, 200, 200);
-}
-
-.stats-bloc-blue {
-  background-color: rgb(63, 169, 245);
-}
-
-.stats-bloc-black {
-  background-color: rgb(50, 50, 50);
-}
-
-.stats-bloc-orange {
-  background-color: rgb(255, 147, 30);
-}
-
-.stats-bloc-green {
-  background-color: rgb(122, 201, 67);
-}
-
-.gauge-chart {
-  height: 200px;
-}
-
-.map-directive {
-  display: block;
-  width: 1000px;
-  height: 650px;
-  margin:0 auto;
-  background-color: rgb(255, 255, 255);
-  border: 1px solid rgb(210, 210, 210);
-}
+.stats-bloc-red     {   background-color: rgb(255, 29, 37);   }
+.stats-bloc-grey    {   background-color: rgb(200, 200, 200); }
+.stats-bloc-blue    {   background-color: rgb(63, 169, 245);  }
+.stats-bloc-black   {   background-color: rgb(50, 50, 50);    }
+.stats-bloc-orange  {   background-color: rgb(255, 147, 30);  }
+.stats-bloc-green   {   background-color: rgb(122, 201, 67);  }
