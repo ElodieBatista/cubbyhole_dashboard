@@ -120,4 +120,9 @@ tspan {
 
 .map-directive {
   display: block;
+  width: 1000px;
+  height: 650px;
+  margin:0 auto;
+  background-color: rgb(255, 255, 255);
+  border: 1px solid rgb(210, 210, 210);
 }

@@ -11,84 +11,125 @@ module.directive('mapChart', function(colorService) {
     },
 
     link: function (scope, element, attrs) {
-      //var map = new AmCharts.AmMap();
-      // set path to images
-      /*var countryData = {
-        africa: {
-          title: "Africa",
-          color: "#de4c4f",
-          countries: ["AO", "BF", "BI", "BJ", "BW", "CD", "CF", "CG", "CI", "CM", "DJ", "DZ", "EG", "ER", "ET", "GA", "GH", "GM", "GN", "GQ", "GW", "KE", "LR", "LS", "LY", "MA", "MU", "MG", "ML", "MR", "MW", "MZ", "NA", "NE", "NG", "RW", "SD", "SL", "SN", "SO", "SS", "SZ", "TD", "TG", "TN", "TZ", "UG", "ZA", "ZM", "ZW", "EH", "KM", "GO", "JU", "SH", "ST", "YT", "BV", "CV"]
+      var data = [
+        {
+          name: 'africa',
+          value: 10
         },
-        europe: {
-          title: "Europe",
-          color: "#d8854f",
-          countries: ["AL", "AM", "AT", "AZ", "BA", "BE", "BG", "BY", "CH", "CY", "CZ", "DE", "DK", "EE", "ES", "FI", "FR", "GB", "GE", "GR", "HR", "HU", "IE", "IS", "IT", "KV", "LT", "LU", "LV", "MD", "ME", "MK", "NL", "NO", "PL", "PT", "RO", "RS", "RU_europe", "SE", "SI", "SJ", "SK", "TR", "UA", "RU", "VA", "MT", "MC", "XK", "LI", "IM", "GI", "FO", "AD", "AX", "GG", "JE", "SM"]
+        {
+          name: 'asia',
+          value: 172
         },
-        asia: {
-          title: "Asia",
-          color: "#eea638",
-          countries: ["AE", "AF", "BD", "BN", "BT", "CN", "ID", "IL", "IN", "IQ", "IR", "JO", "JP", "KG", "KH", "KP", "KR", "KW", "KZ", "LA", "LB", "LK", "MM", "MN", "MY", "NP", "OM", "PH", "PK", "PS", "QA", "RU-asia", "SA", "SY", "TH", "TJ", "TL", "TM", "TW", "UZ", "VN", "YE", "HK", "MV", "BH", "SG"]
+        {
+          name: 'australia',
+          value: 517
         },
-        north_america: {
-          title: "North America",
-          color: "#a7a737",
-          countries: ["BS", "BZ", "CA", "CR", "CU", "DO", "GL", "GT", "HN", "HT", "JM", "MX", "NI", "PA", "PR", "SV", "US", "AG", "AW", "BB", "BL", "GD", "KN", "LC", "MQ", "TC", "VG", "AI", "BM", "DM", "PM", "GP", "KY", "MF", "MS", "SX", "TT", "VC", "VI", "BQ", "CW"]
+        {
+          name: 'europe',
+          value: 824
         },
-        south_america: {
-          title: "South America",
-          color: "#86a965",
-          countries: ["AR", "BO", "BR", "CL", "CO", "EC", "FK", "GF", "GY", "PE", "PY", "SR", "UY", "VE", "GS"]
+        {
+          name: 'north_america',
+          value: 950
         },
-        australia: {
-          title: "Australia & Oceania",
-          color: "#8aabb0",
-          countries: ["AS", "AU", "CC", "CX", "FJ", "FM", "GU", "HM", "IO", "KI", "MH", "MO", "MP", "NC", "NF", "NR", "NU", "NZ", "PG", "PW", "RE", "SB", "SC", "TF", "TK", "TO", "TV", "UM-81", "UM-84", "UM-67", "UM-71", "UM-79", "VU", "WF", "WS", "CK", "UM-86", "PF", "PN"]
+        {
+          name: 'south_america',
+          value: 23
         }
-      };*/
+      ];
 
-      var map = AmCharts.makeChart("location-map", {
+      var coordinates = [
+        {
+          name: 'africa',
+          latitude:4.214943141390651,
+          longitude:23.90625
+        },
+        {
+          name: 'asia',
+          latitude:52.90890204777028,
+          longitude:93.515625
+        },
+        {
+          name: 'australia',
+          latitude:-25.48295117535531,
+          longitude:135
+        },
+        {
+          name: 'europe',
+          latitude:50.736455137010665,
+          longitude:24.2578125
+        },
+        {
+          name: 'north_america',
+          latitude:48.354467,
+          longitude:-99.998123
+        },
+        {
+          name: 'south_america',
+          latitude:-16.299051014581817,
+          longitude:-55.8984375
+        }
+      ];
+
+      // Nb total of users
+      var max = 0,
+          sum = 0;
+      for (var i = 0, l = data.length; i < l; i++) {
+        if (data[i].value > max) {
+          max = data[i].value;
+        }
+        sum += data[i].value;
+      }
+
+      var areas = [],
+          images = [];
+      for (var j = 0, le = data.length; j < le; j++) {
+        var percent = ((data[j].value * 100) / max) / 100;
+        console.log(percent);
+        areas.push({
+          id: data[j].name,
+          value: data[j].value,
+          outlineColor: colorService.grey.normal,
+          outlineAlpha: 1,
+          color: 'rgba(0, 0, 0, ' + percent + ')'
+        });
+        data[j].percent = Math.round((data[j].value * 100) / sum);
+        data[j].scale = data[j].percent / 10;
+
+        if (data[j].scale < 1) {
+          data[j].scale = 1;
+        }
+
+        images.push({
+          latitude: coordinates[j].latitude,
+          longitude: coordinates[j].longitude,
+          type: 'circle',
+          color:'#EC7C00',
+          scale: data[j].scale.toString(),
+          label: data[j].percent + '%',
+          labelColor: (data[j].percent <= 10 ? '#EC7C00' : '#FFFFFF')
+        });
+      }
+
+      var map = AmCharts.makeChart('location-map', {
         type: 'map',
-        theme: 'light',
-        pathToImages: "/src/lib/ammap/images/",
+        theme: 'customTheme',
+        pathToImages: '/src/lib/ammap/images/',
 
         dataProvider: {
-          map: "continentsLow",
-          /*getAreasFromMap: true,*/
+          map: 'continentsLow',
           zoomLevel: 1,
-          areas: [{
-            id: "africa",
-            value: '10'/*,
-             color: countryData.africa.color*/
-          }, {
-            id: "asia",
-            value: '172'/*,
-             color: countryData.asia.color*/
-          }, {
-            id: "australia",
-            value: '517'/*,
-             color: countryData.australia.color*/
-          }, {
-            id: "europe",
-            value: '824'/*,
-             color: countryData.europe.color*/
-          }, {
-            id: "north_america",
-            value: '950'/*,
-             color: countryData.north_america.color*/
-          }, {
-            id: "south_america",
-            value: '23'/*,
-             color: countryData.south_america.color*/
-          }]
+          areas: areas,
+          images:images
         },
         areasSettings: {
           autoZoom: false,
-          balloonText: "[[title]]: [[value]] users"
+          balloonText: '[[title]]: [[value]] users'
         },
         valueLegend: {
-          right: 10
-/*          minValue: '0',
-          maxValue: '2300'*/
+          right: 10,
+          minValue: '0',
+          maxValue: max
         }
       });
     }
