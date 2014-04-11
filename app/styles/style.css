@@ -563,6 +563,8 @@ footer {
   line-height: 22px;
   border: none;
   background-color: transparent;
+  box-shadow: none;
+  outline: 0;
 }
 
 .btn {
