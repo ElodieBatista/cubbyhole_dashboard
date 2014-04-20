@@ -8,6 +8,7 @@
     <link rel="stylesheet" href="styles/font-awesome/font-awesome-4.0.3.min.css" />
     <link rel="stylesheet" href="styles/style.css" />
     <link rel="stylesheet" href="styles/home.css" />
+    <link rel="stylesheet" href="src/reports/reports.css" />
     <link rel="stylesheet" href="src/charts/charts.css" />
   </head>
 
@@ -36,6 +37,9 @@
             </li>
             <li class="navtop-item" ng-class="{ active: isActive('/locations')}">
               <a href="index.html#/locations" onclick="collapseNavbar();">Locations</a>
+            </li>
+            <li class="navtop-item" ng-class="{ active: isActive('/reports')}">
+              <a href="index.html#/reports" onclick="collapseNavbar();">Reports</a>
             </li>
             <li class="navtop-item dropdown">
               <a data-toggle="dropdown" href="">Me &nbsp;&nbsp;<i class="fa fa-angle-down"></i></a>
@@ -91,6 +95,8 @@
     <script src="src/plans/plans.js"></script>
     <script src="src/users/users.js"></script>
     <script src="src/locations/locations.js"></script>
+    <script src="src/reports/reports.js"></script>
+    <script src="src/reports/reportExplorer.js"></script>
     <script src="src/charts/columnLineChart.js"></script>
     <script src="src/charts/donutChart.js"></script>
     <script src="src/charts/pieChart.js"></script>

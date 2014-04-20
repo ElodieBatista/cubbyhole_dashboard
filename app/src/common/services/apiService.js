@@ -21,6 +21,12 @@ module.factory('apiService', function(conf, $resource) {
         404: 'Incorrect email or password.',
         422: 'This email address already exists. Please, try another one.'
       }
-    }
+    },
+
+    Plans: $resource(conf.epApi + '/plan', {}, {
+      'get': {
+        method: 'GET'
+      }
+    })
   };
 });

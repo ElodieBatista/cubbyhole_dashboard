@@ -1,0 +1,78 @@
+<div class="row">
+
+  <div class="col-md-1 no-padding">
+    <input type="radio" name="radio-first" value="0" ng-model="modalform.radiofirst">
+  </div>
+
+  <div class="col-md-5 no-padding">
+    <div class="input-prepend" ng-class="{'input-prepend-active': focused0}">
+      <i class="fa input-icon fa-arrow-down"></i>
+      <select ng-disabled="!modalOpts.radioFirst('0')" ng-model="modalform.first" ng-init="focused0 = false" ng-focus="focused0 = true" ng-blur="focused0 = false" required>
+        <option class="option-default" value="">Users</option>
+        <option value="">All</option>
+        <option value="">New</option>
+      </select>
+    </div>
+  </div>
+
+  <div class="col-md-1 no-padding">
+    <input type="radio" name="radio-first" value="1" ng-model="modalform.radiofirst">
+  </div>
+
+  <div class="col-md-5 no-padding">
+    <div class="input-prepend" ng-class="{'input-prepend-active': focused1}">
+      <i class="fa input-icon fa-arrow-down"></i>
+      <select ng-disabled="!modalOpts.radioFirst('1')" ng-model="modalform.first" ng-init="focused1 = false" ng-focus="focused1 = true" ng-blur="focused1 = false" required>
+        <option class="option-default" value="">Plan Usage</option>
+        <option value="">All</option>
+        <option value="">Storage</option>
+        <option value="">Shared Quota</option>
+        <option value="">Bandwidth</option>
+      </select>
+    </div>
+  </div>
+
+</div>
+
+<div class="row">
+
+  <div class="col-md-1 no-padding">
+    <input type="radio" name="radio-second" value="0" ng-model="modalform.radiosecond">
+  </div>
+
+  <div class="col-md-3 no-padding">
+    <div class="input-prepend" ng-class="{'input-prepend-active': focused2}">
+      <i class="fa input-icon fa-arrow-down"></i>
+      <select ng-disabled="!modalOpts.radioSecond('0')" ng-model="modalform.second" ng-options="p.name for p in modalOpts.plans" ng-init="focused2 = false" ng-focus="focused2 = true" ng-blur="focused2 = false" required>
+        <option class="option-default" value="">Plan</option>
+      </select>
+    </div>
+  </div>
+
+  <div class="col-md-1 no-padding">
+    <input type="radio" name="radio-second" value="1" ng-model="modalform.radiosecond">
+  </div>
+
+  <div class="col-md-3 no-padding">
+    <div class="input-prepend" ng-class="{'input-prepend-active': focused3}">
+      <i class="fa input-icon fa-arrow-down"></i>
+      <select ng-disabled="!modalOpts.radioSecond('1')" ng-model="modalform.second" ng-options="l for l in modalOpts.locations" ng-init="focused3 = false" ng-focus="focused3 = true" ng-blur="focused3 = false" required>
+        <option class="option-default" value="">Location</option>
+      </select>
+    </div>
+  </div>
+
+  <div class="col-md-1 no-padding">
+    <input type="radio" name="radio-second" value="2" ng-model="modalform.radiosecond">
+  </div>
+
+  <div class="col-md-3 no-padding">
+    <div class="input-prepend" ng-class="{'input-prepend-active': focused4}">
+      <i class="fa input-icon fa-arrow-down"></i>
+      <select ng-disabled="!modalOpts.radioSecond('2')" ng-model="modalform.second" ng-options="t for t in modalOpts.times" ng-init="focused4 = false" ng-focus="focused4 = true" ng-blur="focused4 = false" required>
+        <option class="option-default" value="">Time</option>
+      </select>
+    </div>
+  </div>
+
+</div>
