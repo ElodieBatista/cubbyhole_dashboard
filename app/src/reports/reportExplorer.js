@@ -12,7 +12,7 @@ module.directive('reportExplorer', function() {
         scope.modalform = {
           radiofirst: '0',
           radiosecond: '0',
-          radiothird: '1'
+          radiothird: '2'
         };
 
         scope.modalOpts = {

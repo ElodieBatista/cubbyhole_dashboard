@@ -49,7 +49,7 @@
 <div class="row">
 
   <div class="col-md-1 no-padding modal-mini-btn">
-    <input type="radio" name="radio-second" value="0" ng-model="modalform.radiosecond">
+    <input type="radio" name="radio-second" value="0" ng-model="modalform.radiosecond" ng-click="modalform.radiothird = '2'">
   </div>
 
   <div class="col-md-3 no-padding">
@@ -62,7 +62,7 @@
   </div>
 
   <div class="col-md-1 no-padding modal-mini-btn">
-    <input type="radio" name="radio-second" value="1" ng-model="modalform.radiosecond">
+    <input type="radio" name="radio-second" value="1" ng-model="modalform.radiosecond" ng-click="modalform.radiothird = '0'">
   </div>
 
   <div class="col-md-3 no-padding">
@@ -75,7 +75,7 @@
   </div>
 
   <div class="col-md-1 no-padding modal-mini-btn">
-    <input type="radio" name="radio-second" value="2" ng-model="modalform.radiosecond">
+    <input type="radio" name="radio-second" value="2" ng-model="modalform.radiosecond" ng-click="modalform.radiothird = '1'">
   </div>
 
   <div class="col-md-3 no-padding">
@@ -98,7 +98,7 @@
 <div class="row">
 
   <div class="col-md-1 no-padding modal-mini-btn">
-    <input type="radio" ng-disabled="modalOpts.radioSecond('0')" ng-checked="modalOpts.radioSecond('1')" name="radio-third" value="0" ng-model="modalform.radiothird">
+    <input type="radio" ng-disabled="modalOpts.radioSecond('0')" name="radio-third" value="0" ng-model="modalform.radiothird">
   </div>
 
   <div class="col-md-3 no-padding modal-input-label">
@@ -106,7 +106,7 @@
   </div>
 
   <div class="col-md-1 no-padding modal-mini-btn">
-    <input type="radio" ng-disabled="modalOpts.radioSecond('1')" ng-checked="modalOpts.radioSecond('2')" name="radio-third" value="1" ng-model="modalform.radiothird">
+    <input type="radio" ng-disabled="modalOpts.radioSecond('1')" name="radio-third" value="1" ng-model="modalform.radiothird">
   </div>
 
   <div class="col-md-3 no-padding modal-input-label">
@@ -114,7 +114,7 @@
   </div>
 
   <div class="col-md-1 no-padding modal-mini-btn">
-    <input type="radio" ng-disabled="modalOpts.radioSecond('2')" ng-checked="modalOpts.radioSecond('0')" name="radio-third" value="2" ng-model="modalform.radiothird">
+    <input type="radio" ng-disabled="modalOpts.radioSecond('2')" name="radio-third" value="2" ng-model="modalform.radiothird">
   </div>
 
   <div class="col-md-3 no-padding">

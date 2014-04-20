@@ -21,8 +21,8 @@ module.controller('ReportsCtrl',
     $scope.locations = ['Africa', 'Asia', 'Australia', 'Europe', 'North America', 'South America'];
     $scope.times = ['2014'];
 
-    $scope.createReport = function() {
-
+    $scope.createReport = function(form) {
+      console.log(form);
     };
   }
 );
