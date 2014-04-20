@@ -10,9 +10,20 @@ module.directive('reportExplorer', function() {
     link: function (scope, element, attrs) {
       scope.reOpenModalNewReport = function() {
         scope.modalform = {
-          radiofirst: '0',
-          radiosecond: '0',
-          radiothird: '2'
+          metric1: {
+            prop: 'users',
+            filter: 'all'
+          },
+          metric2: {
+            prop: 'plan'
+          },
+          metric3: {
+            prop: 'time'
+          }/*
+          radiofirst: 'users',
+          filterfirst: 'all',
+          radiosecond: 'plan',
+          radiothird: 'time'*/
         };
 
         scope.modalOpts = {
@@ -31,15 +42,15 @@ module.directive('reportExplorer', function() {
       };
 
       scope.radioFirst = function(index) {
-        return index === scope.modalform.radiofirst;
+        return index === scope.modalform.metric1.prop;
       };
 
       scope.radioSecond = function(index) {
-        return index === scope.modalform.radiosecond;
+        return index === scope.modalform.metric2.prop;
       };
 
       scope.radioThird = function(index) {
-        return index === scope.modalform.radiothird;
+        return index === scope.modalform.metric3.prop;
       };
     }
   };

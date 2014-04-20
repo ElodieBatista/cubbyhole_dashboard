@@ -59,6 +59,10 @@ h5 {
   padding-top: 115px;
 }
 
+.space-top-mini {
+  padding-top: 20px;
+}
+
 .center {
   text-align: center;
 }
@@ -156,7 +160,7 @@ spinner {
 }
 
 .modal-body {
-  max-height: 350px;
+  max-height: 400px;
   overflow-y: auto;
 }
 
