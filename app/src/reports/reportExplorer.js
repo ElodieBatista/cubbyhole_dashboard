@@ -11,7 +11,8 @@ module.directive('reportExplorer', function() {
       scope.reOpenModalNewReport = function() {
         scope.modalform = {
           radiofirst: '0',
-          radiosecond: '0'
+          radiosecond: '0',
+          radiothird: '1'
         };
 
         scope.modalOpts = {
@@ -23,6 +24,7 @@ module.directive('reportExplorer', function() {
           times: scope.times,
           radioFirst: scope.radioFirst,
           radioSecond: scope.radioSecond,
+          radioThird: scope.radioThird,
           templateUrl: 'src/reports/tpls/newReport.tpl.html'
         };
         $('#appmodal').modal('show');
@@ -34,6 +36,10 @@ module.directive('reportExplorer', function() {
 
       scope.radioSecond = function(index) {
         return index === scope.modalform.radiosecond;
+      };
+
+      scope.radioThird = function(index) {
+        return index === scope.modalform.radiothird;
       };
     }
   };

@@ -156,7 +156,7 @@ spinner {
 }
 
 .modal-body {
-  max-height: 250px;
+  max-height: 350px;
   overflow-y: auto;
 }
 
@@ -235,6 +235,21 @@ input[type="file"] {
   width: 80% !important;
   padding: 0 !important;
   float: none;
+}
+
+.modal-mini-btn {
+  text-align: center;
+  line-height: 48px;
+  height: 45px;
+}
+
+.modal-input-label {
+  line-height: 45px;
+}
+
+.quaternary .modal-label {
+  font-size: 16px;
+  color: rgb(122, 201, 67);
 }
 
 

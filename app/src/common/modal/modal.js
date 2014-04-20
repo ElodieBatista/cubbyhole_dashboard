@@ -19,7 +19,7 @@ module.directive('modal', function() {
       scope.submitBtnClass = scope.modalColor + '-btn';
 
       $(elem).on('shown.bs.modal', function(e) {
-        $(this).find('input:not([type="file"]):not([type="submit"]):first').focus();
+        $(this).find('input:not([type="file"]):not([type="submit"]):not([type="radio"]):first').focus();
       });
 
       $(elem).on('hide.bs.modal', function(e) {
