@@ -68,7 +68,7 @@
   <div class="col-md-3 no-padding">
     <div class="input-prepend" ng-class="{'input-prepend-active': focused2, 'disabled': !modalOpts.radioSecond('plan')}">
       <i class="fa input-icon fa-th"></i>
-      <select ng-disabled="!modalOpts.radioSecond('plan')" ng-model="modalform.metric2.filter" ng-options="p.name for p in modalOpts.plans" ng-init="focused2 = false" ng-focus="focused2 = true" ng-blur="focused2 = false" required>
+      <select ng-disabled="!modalOpts.radioSecond('plan')" ng-model="modalform.metric2.filter" ng-options="p._id as p.name for p in modalOpts.plans" ng-init="focused2 = false" ng-focus="focused2 = true" ng-blur="focused2 = false" required>
         <option class="option-default" value=""></option>
       </select>
     </div>

@@ -16,6 +16,14 @@ module.controller('ReportsCtrl',
   function ReportsCtrl($scope, apiService) {
     apiService.Plans.get(function(res) {
       $scope.plans = res.data;
+      $scope.plans.push({
+        name: 'All Free',
+        _id: 'all free'
+      });
+      $scope.plans.push({
+        name: 'All Paying',
+        _id: 'all paying'
+      });
     });
 
     $scope.locations = ['Africa', 'Asia', 'Australia', 'Europe', 'North America', 'South America'];
