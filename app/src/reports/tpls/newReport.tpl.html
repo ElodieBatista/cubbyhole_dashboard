@@ -46,7 +46,7 @@
 
 </div>
 
-<div class="row space-top-mini">
+<div class="row">
   <div class="col-md-6 no-padding">
     <label class="modal-label">2nd Metric</label>
   </div>
@@ -58,7 +58,7 @@
 <div class="row">
 
   <div class="col-md-1 no-padding modal-mini-btn">
-    <input type="radio" name="radio-second" value="plan" ng-model="modalform.metric2.prop" ng-click="modalform.metric3.prop = 'time'">
+    <input type="radio" name="radio-second" value="plan" ng-model="modalform.metric2.prop" ng-click="modalform.metric3.prop = 'time'; modalform.charttype = 'line';">
   </div>
 
   <div class="col-md-2 no-padding">
@@ -88,7 +88,7 @@
 <div class="row">
 
   <div class="col-md-1 no-padding modal-mini-btn">
-    <input type="radio" name="radio-second" value="location" ng-model="modalform.metric2.prop" ng-click="modalform.metric3.prop = 'plan'">
+    <input type="radio" name="radio-second" value="location" ng-model="modalform.metric2.prop" ng-click="modalform.metric3.prop = 'plan'; modalform.charttype = 'pie';">
   </div>
 
   <div class="col-md-2 no-padding">
@@ -118,7 +118,7 @@
 <div class="row">
 
   <div class="col-md-1 no-padding modal-mini-btn">
-    <input type="radio" name="radio-second" value="time" ng-model="modalform.metric2.prop" ng-click="modalform.metric3.prop = 'location'">
+    <input type="radio" name="radio-second" value="time" ng-model="modalform.metric2.prop" ng-click="modalform.metric3.prop = 'location'; modalform.charttype = 'column';">
   </div>
 
   <div class="col-md-2 no-padding">
@@ -138,8 +138,8 @@
     <input type="radio" ng-disabled="modalOpts.radioSecond('time')" name="radio-third" value="time" ng-model="modalform.metric3.prop">
   </div>
 
-  <div class="col-md-1 no-padding">
-    <span class="modal-input-label">Time</span>
+  <div class="col-md-1 no-padding modal-input-label">
+    <span ng-class="{'disabled': modalOpts.radioSecond('time')}">Time</span>
   </div>
 
   <div class="col-md-3 no-padding">
@@ -149,6 +149,52 @@
         <option class="option-default" value=""></option>
       </select>
     </div>
+  </div>
+
+</div>
+
+<div class="row">
+  <div class="col-md-12 no-padding">
+    <label class="modal-label">Chart Type</label>
+  </div>
+</div>
+
+<div class="row">
+
+  <div class="col-md-1 no-padding modal-mini-btn">
+    <input type="radio" ng-disabled="!modalOpts.radioThird('time')" name="radio-chart" value="line" ng-model="modalform.charttype">
+  </div>
+
+  <div class="col-md-2 no-padding modal-input-label">
+    <span ng-class="{'disabled': !modalOpts.radioThird('time')}">Line</span>
+  </div>
+
+  <div class="col-md-1 no-padding">
+
+  </div>
+
+  <div class="col-md-1 no-padding modal-mini-btn">
+    <input type="radio" ng-disabled="modalOpts.radioThird('time')" name="radio-chart" value="pie" ng-model="modalform.charttype">
+  </div>
+
+  <div class="col-md-2 no-padding modal-input-label">
+    <span ng-class="{'disabled': modalOpts.radioThird('time')}">Pie</span>
+  </div>
+
+  <div class="col-md-1 no-padding">
+
+  </div>
+
+  <div class="col-md-1 no-padding modal-mini-btn">
+    <input type="radio" name="radio-chart" value="column" ng-model="modalform.charttype">
+  </div>
+
+  <div class="col-md-2 no-padding modal-input-label">
+    <span>Column</span>
+  </div>
+
+  <div class="col-md-1 no-padding">
+
   </div>
 
 </div>

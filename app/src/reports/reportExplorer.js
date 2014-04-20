@@ -19,11 +19,8 @@ module.directive('reportExplorer', function() {
           },
           metric3: {
             prop: 'time'
-          }/*
-          radiofirst: 'users',
-          filterfirst: 'all',
-          radiosecond: 'plan',
-          radiothird: 'time'*/
+          },
+          charttype: 'line'
         };
 
         scope.modalOpts = {
