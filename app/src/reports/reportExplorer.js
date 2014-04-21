@@ -2,23 +2,28 @@
 
 var module = angular.module('dashboardApp');
 
-module.directive('reportExplorer', function() {
+module.directive('reportExplorer', function(colorService, $compile) {
   return {
     restrict: 'A',
     scope: '{}',
 
     link: function (scope, element, attrs) {
+      var count = 0;
+      scope.dataCharts = [];
+
       scope.reOpenModalNewReport = function() {
         scope.modalform = {
-          metric1: {
-            prop: 'users',
-            filter: 'all'
-          },
-          metric2: {
-            prop: 'plan'
-          },
-          metric3: {
-            prop: 'time'
+          metrics: {
+            metric1: {
+              prop: 'users',
+              filter: 'all'
+            },
+            metric2: {
+              prop: 'plan'
+            },
+            metric3: {
+              prop: 'time'
+            }
           },
           charttype: 'line'
         };
@@ -39,15 +44,39 @@ module.directive('reportExplorer', function() {
       };
 
       scope.radioFirst = function(index) {
-        return index === scope.modalform.metric1.prop;
+        return index === scope.modalform.metrics.metric1.prop;
       };
 
       scope.radioSecond = function(index) {
-        return index === scope.modalform.metric2.prop;
+        return index === scope.modalform.metrics.metric2.prop;
       };
 
       scope.radioThird = function(index) {
-        return index === scope.modalform.metric3.prop;
+        return index === scope.modalform.metrics.metric3.prop;
+      };
+
+      scope.createChart = function(type, data) {
+        var html = '';
+
+        if (count % 2 === 0) {
+          $('#reports-container').append('<div class="row"><div class="col-md-6"></div></div>');
+        } else {
+          $('#reports-container .row:last-of-type').append('<div class="col-md-6"></div>');
+        }
+
+        if (type === 'line') {
+          scope.dataCharts.push([{
+            name: 'test',
+            color: Highcharts.Color(colorService.blue.normal).get(),
+            data: data
+          }]);
+          html = '<line-chart id="test2" class="chart-directive chart chart-border-blue" title-chart="test" data="dataCharts[' + count + ']"></line-chart>';
+        }
+
+        var chart = $compile(html)(scope);
+        $('#reports-container .row:last-of-type .col-md-6:last-of-type').append(chart);
+        $(window).trigger("resize");
+        count++;
       };
     }
   };

@@ -29,8 +29,12 @@ module.controller('ReportsCtrl',
     $scope.locations = ['Africa', 'Asia', 'Australia', 'Europe', 'North America', 'South America'];
     $scope.times = ['2014'];
 
+    $scope.fakeAllusersFree2014 = [10, 35, 136, 166, 170, 230, 275, 355, 505, 713, 1063, 1095];
+
     $scope.createReport = function(form) {
       console.log(form);
+
+      $scope.createChart(form.charttype, $scope.fakeAllusersFree2014);
     };
   }
 );
