@@ -70,7 +70,7 @@ module.directive('reportExplorer', function(colorService, $compile) {
             color: Highcharts.Color(colorService.blue.normal).get(),
             data: data
           }]);
-          html = '<line-chart id="test2" class="chart-directive chart chart-border-blue" title-chart="test" data="dataCharts[' + count + ']"></line-chart>';
+          html = '<line-chart id="test2" class="chart-directive chart chart-border-blue" title-chart="\'test\'" data="dataCharts[' + count + ']"></line-chart>';
         }
 
         var chart = $compile(html)(scope);

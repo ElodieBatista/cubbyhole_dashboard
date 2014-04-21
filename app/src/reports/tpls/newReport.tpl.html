@@ -198,3 +198,32 @@
   </div>
 
 </div>
+
+<div class="row">
+  <div class="col-md-6 no-padding">
+    <label class="modal-label">Chart Title</label>
+  </div>
+  <div class="col-md-6 no-padding">
+    <label class="modal-label">Chart Color</label>
+  </div>
+</div>
+
+<div class="row">
+  <div class="col-md-6">
+
+    <div class="input-prepend" ng-class="{'input-prepend-active': focused6}">
+      <i class="fa input-icon fa-folder"></i>
+      <input class="input-text input-text-empty-onclose" type="text" placeholder="Chart Title" required ng-model="modalform.name" ng-init="focused6 = false" ng-focus="focused6 = true" ng-blur="focused6 = false" />
+    </div>
+
+  </div>
+
+  <div class="col-md-6">
+
+    <div class="input-prepend" ng-class="{'input-prepend-active': focused7}">
+      <i class="fa input-icon fa-folder"></i>
+      <input spectrum type="text" id="spectrum" required ng-model="modalform.color" ng-init="focused7 = false" ng-focus="focused7 = true" ng-blur="focused7 = false" />
+    </div>
+
+  </div>
+</div>
