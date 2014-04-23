@@ -13,9 +13,14 @@ module.config(function config($routeProvider) {
 });
 
 module.controller('UsersCtrl',
-  function UsersCtrl($scope, colorService) {
+  function UsersCtrl($scope, apiService, colorService) {
     // #1
-    var newUsers = [10, 25, 101, 30, 4, 60, 45, 80, 150, 208, 350, 42];
+    var newUsers = [];
+
+    apiService.NewUsers.get(function(res) {
+      newUsers = res;
+    });
+    //var newUsers = [10, 25, 101, 30, 4, 60, 45, 80, 150, 208, 350, 42];
     var users = [10, 35, 136, 166, 170, 230, 275, 355, 505, 713, 1063, 1095];
 
     // #2 & #5

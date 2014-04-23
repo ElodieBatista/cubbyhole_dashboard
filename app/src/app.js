@@ -8,6 +8,7 @@ angular.module('dashboardApp', [
   ])
   .constant('conf', {
     'epApi': 'http://localhost:3000',
+    'epDbdApi': 'http://localhost:3001',
     'epWeb': 'http://localhost:8000'
   })
   .config(function(conf, $locationProvider, $httpProvider, $routeProvider, $sceDelegateProvider, $provide) {
