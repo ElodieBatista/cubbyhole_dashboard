@@ -65,13 +65,26 @@ module.directive('reportExplorer', function(colorService, $compile) {
           $('#reports-container .row:last-of-type').append('<div class="col-md-6"></div>');
         }
 
+
         if (type === 'line') {
           scope.dataCharts.push([{
             name: title,
             color: Highcharts.Color(color).get(),
             data: data
           }]);
-          html = '<line-chart id="test2" class="chart-directive chart" title-chart="\'' + title + '\'" data="dataCharts[' + count + ']" style="border-top: 3px solid ' + color + '"></line-chart>';
+          html = '<line-chart class="chart-directive chart" title-chart="\'' + title + '\'" data="dataCharts[' + count + ']" style="border-top: 3px solid ' + color + '"></line-chart>';
+        } else if (type === 'pie') {
+          var dataToSave = [];
+          for (var i = 0, l = data.length; i < l; i++) {
+            dataToSave.push({
+              name: data[i].name,
+              y: data[i].value,
+              color: Highcharts.Color(color).brighten(i * (0.15/l)).get()
+            });
+          }
+          scope.dataCharts.push(dataToSave);
+
+          html = '<pie-chart class="chart-directive chart" title-chart="\'' + title + '\'" subtitle="\'' + scope.modalform.metrics.metric1.prop + '\'" data="dataCharts[' + count + ']" style="border-top: 3px solid ' + color + '"></pie-chart>';
         }
 
         var chart = $compile(html)(scope);

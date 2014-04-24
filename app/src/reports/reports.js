@@ -30,11 +30,33 @@ module.controller('ReportsCtrl',
     $scope.times = ['2014'];
 
     $scope.fakeAllusersFree2014 = [10, 35, 136, 166, 170, 230, 275, 355, 505, 713, 1063, 1095];
+    $scope.fakeAllusersEuropePerPlan = [
+      {
+        name: 'Free',
+        value: 25
+      },
+      {
+        name: 'Pro',
+        value: 48
+      },
+      {
+        name: 'Business',
+        value: 52
+      },
+      {
+        name: 'Enterprise',
+        value: 61
+      }
+    ];
 
     $scope.createReport = function(form) {
       console.log(form);
 
-      $scope.createChart(form.charttype, form.title, form.color, $scope.fakeAllusersFree2014);
+      if (form.charttype === 'line') {
+        $scope.createChart(form.charttype, form.title, form.color, $scope.fakeAllusersFree2014);
+      } else if (form.charttype === 'pie') {
+        $scope.createChart(form.charttype, form.title, form.color, $scope.fakeAllusersEuropePerPlan);
+      }
     };
   }
 );
