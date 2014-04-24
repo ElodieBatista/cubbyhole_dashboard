@@ -23,33 +23,33 @@ module.factory('apiService', function(conf, $resource) {
       }
     },
 
-    NewUsers: $resource(conf.epDbdApi + '/users/new', {}, {
+    UsersNew: $resource(conf.epDbdApi + '/users/new', {}, {
       'get': {
         method: 'GET'
       }
     }),
-    TotalUsers: $resource(conf.epDbdApi + '/users/total', {}, {
+    UsersTotal: $resource(conf.epDbdApi + '/users/total', {}, {
       'get': {
         method: 'GET'
       }
     }),
-    UsersPerPlan: $resource(conf.epDbdApi + '/plans/users', {}, {
+    UsersNewFree: $resource(conf.epDbdApi + '/users/free/new', {}, {
       'get': {
         method: 'GET'
       }
     }),
-    NewPayingUsers: $resource(conf.epDbdApi + '/users/paying/new', {}, {
-      'get': {
-        method: 'GET'
-      }
-    }),
-    NewFreeUsers: $resource(conf.epDbdApi + '/users/free/new', {}, {
+    UsersNewPaying: $resource(conf.epDbdApi + '/users/paying/new', {}, {
       'get': {
         method: 'GET'
       }
     }),
 
     Plans: $resource(conf.epApi + '/plan', {}, {
+      'get': {
+        method: 'GET'
+      }
+    }),
+    PlansUsers: $resource(conf.epDbdApi + '/plans/users', {}, {
       'get': {
         method: 'GET'
       }

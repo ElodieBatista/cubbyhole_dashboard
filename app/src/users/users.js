@@ -40,7 +40,7 @@ module.controller('UsersCtrl',
       };
     };
 
-    apiService.NewUsers.get(function(res) {
+    apiService.UsersNew.get(function(res) {
       $scope.newUsers = res.data;
 
       if ($scope.isDataChart1Ready()) {
@@ -48,7 +48,7 @@ module.controller('UsersCtrl',
       }
     });
 
-    apiService.TotalUsers.get(function(res) {
+    apiService.UsersTotal.get(function(res) {
       $scope.users = res.data;
 
       if ($scope.isDataChart1Ready()) {
@@ -116,7 +116,7 @@ module.controller('UsersCtrl',
       ];
     };
 
-    apiService.UsersPerPlan.get(function(res) {
+    apiService.PlansUsers.get(function(res) {
       $scope.usersPerPlan = res.data;
       $scope.setDataChart2();
       $scope.setDataChart5();
@@ -179,7 +179,7 @@ module.controller('UsersCtrl',
       };
     };
 
-    apiService.NewFreeUsers.get(function(res) {
+    apiService.UsersNewFree.get(function(res) {
       $scope.newFreeUsers = res.data;
 
       if ($scope.isDataChart4Ready()) {
@@ -187,7 +187,7 @@ module.controller('UsersCtrl',
       }
     });
 
-    apiService.NewPayingUsers.get(function(res) {
+    apiService.UsersNewPaying.get(function(res) {
       $scope.newPayingUsers = res.data;
 
       if ($scope.isDataChart4Ready()) {
