@@ -60,7 +60,71 @@ module.controller('UsersCtrl',
 
 
     // #2 & #5
-    var usersPerPlan = [
+    $scope.setDataChart2 = function() {
+      var sum = [], categories = [], values = [];
+      for (var i = 0, l = $scope.usersPerPlan.length; i < l; i++) {
+        sum[i] = 0;
+        categories[i] = [];
+        values[i] = [];
+        for (var j = 0, le = $scope.usersPerPlan[i].plans.length; j < le; j++) {
+          sum[i] += $scope.usersPerPlan[i].plans[j].users;
+          categories[i].push($scope.usersPerPlan[i].plans[j].name);
+          values[i].push($scope.usersPerPlan[i].plans[j].users);
+        }
+      }
+
+      $scope.dataChart2 = [
+        {
+          name: 'Free',
+          y: sum[0],
+          color: colorService.grey.normal,
+          drilldown: {
+            name: 'Free',
+            categories: categories[0],
+            data: values[0],
+            color: colorService.grey.normal
+          }
+        },
+        {
+          name: 'Paying',
+          y: sum[1],
+          color: colorService.blue.normal,
+          drilldown: {
+            name: 'Paying',
+            categories: categories[1],
+            data: values[1],
+            color: colorService.blue.normal
+          }
+        }
+      ];
+    };
+
+    $scope.setDataChart5 = function() {
+      $scope.dataChart5 = [
+        {
+          name: $scope.usersPerPlan[0].name,
+          y: $scope.usersPerPlan[0].users,
+          color: Highcharts.Color(colorService.grey.normal).brighten(0.10).get()
+        },
+        {
+          name: $scope.usersPerPlan[1].name,
+          y: $scope.usersPerPlan[1].users,
+          color: colorService.red.normal,
+          sliced: true,
+          selected: true
+        }
+      ];
+    };
+
+    apiService.UsersPerPlan.get(function(res) {
+      $scope.usersPerPlan = res.data;
+      $scope.setDataChart2();
+      $scope.setDataChart5();
+    });
+
+
+    // #2 & #5
+    /*var usersPerPlan = [
       {
         name: 'Free',
         users: 651,
@@ -85,7 +149,7 @@ module.controller('UsersCtrl',
           }
         ]
       }
-    ];
+    ];*/
 
     // #3
     var delay = [
@@ -142,7 +206,7 @@ module.controller('UsersCtrl',
 
 
 
-    var sum = [], categories = [], values = [];
+    /*var sum = [], categories = [], values = [];
     for (var i = 0, l = usersPerPlan.length; i < l; i++) {
       sum[i] = 0;
       categories[i] = [];
@@ -177,7 +241,7 @@ module.controller('UsersCtrl',
           color: colorService.blue.normal
         }
       }
-    ];
+    ];*/
 
 
     $scope.dataChart3 = [
@@ -235,22 +299,6 @@ module.controller('UsersCtrl',
         }
       ]
     };
-
-
-    $scope.dataChart5 = [
-      {
-        name: usersPerPlan[0].name,
-        y: usersPerPlan[0].users,
-        color: Highcharts.Color(colorService.grey.normal).brighten(0.10).get()
-      },
-      {
-        name: usersPerPlan[1].name,
-        y: usersPerPlan[1].users,
-        color: colorService.red.normal,
-        sliced: true,
-        selected: true
-      }
-    ];
 
 
     $scope.dataChart6 = [];
