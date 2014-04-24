@@ -122,35 +122,6 @@ module.controller('UsersCtrl',
       $scope.setDataChart5();
     });
 
-
-    // #2 & #5
-    /*var usersPerPlan = [
-      {
-        name: 'Free',
-        users: 651,
-        plans: [
-          {
-            name: 'Free',
-            users: 651
-          }
-        ]
-      },
-      {
-        name: 'Paying',
-        users: 344,
-        plans: [
-          {
-            name: 'Pro',
-            users: 201
-          },
-          {
-            name: 'Business',
-            users: 143
-          }
-        ]
-      }
-    ];*/
-
     // #3
     var delay = [
       {
@@ -203,45 +174,6 @@ module.controller('UsersCtrl',
     $scope.newUsersToday = 85;
     $scope.subscriptionsToday = 40;
     $scope.payingUsersToday = 12;
-
-
-
-    /*var sum = [], categories = [], values = [];
-    for (var i = 0, l = usersPerPlan.length; i < l; i++) {
-      sum[i] = 0;
-      categories[i] = [];
-      values[i] = [];
-      for (var j = 0, le = usersPerPlan[i].plans.length; j < le; j++) {
-        sum[i] += usersPerPlan[i].plans[j].users;
-        categories[i].push(usersPerPlan[i].plans[j].name);
-        values[i].push(usersPerPlan[i].plans[j].users);
-      }
-    }
-
-    $scope.dataChart2 = [
-      {
-        name: 'Free',
-        y: sum[0],
-        color: colorService.grey.normal,
-        drilldown: {
-          name: 'Free',
-          categories: categories[0],
-          data: values[0],
-          color: colorService.grey.normal
-        }
-      },
-      {
-        name: 'Paying',
-        y: sum[1],
-        color: colorService.blue.normal,
-        drilldown: {
-          name: 'Paying',
-          categories: categories[1],
-          data: values[1],
-          color: colorService.blue.normal
-        }
-      }
-    ];*/
 
 
     $scope.dataChart3 = [
