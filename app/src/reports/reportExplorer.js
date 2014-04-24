@@ -85,6 +85,11 @@ module.directive('reportExplorer', function(colorService, $compile) {
           scope.dataCharts.push(dataToSave);
 
           html = '<pie-chart class="chart-directive chart" title-chart="\'' + title + '\'" subtitle="\'' + scope.modalform.metrics.metric1.prop + '\'" data="dataCharts[' + count + ']" style="border-top: 3px solid ' + color + '"></pie-chart>';
+        } else if (type === 'column') {
+          data.series[0].color = color;
+          scope.dataCharts.push(data);
+
+          html = '<column-chart class="chart-directive chart" title-chart="\'' + title + '\'" data="dataCharts[' + count + ']" style="border-top: 3px solid ' + color + '"></column-chart>';
         }
 
         var chart = $compile(html)(scope);
