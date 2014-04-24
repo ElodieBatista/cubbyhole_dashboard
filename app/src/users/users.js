@@ -147,9 +147,53 @@ module.controller('UsersCtrl',
     ];
 
     // #4
-    var newFreeUsers = [9, 20, 81, 30, 4, 60, 45, 80, 150, 208, 350, 42];
-    var newPayingUsers = [1, 15, 20, 10, 9, 68, 14, 17, 98, 104, 208, 31];
-    var nbSubscriptions = [100, 135, 136, 166, 170, 230, 275, 155, 405, 513, 763, 1005];
+    $scope.nbSubscriptions = [100, 135, 136, 166, 170, 230, 275, 155, 405, 513, 763, 1005];
+    $scope.isDataChart4Ready = function() {
+      return $scope.newFreeUsers && $scope.newPayingUsers && $scope.nbSubscriptions;
+    };
+
+    $scope.setDataChart4 = function() {
+      $scope.dataChart4 = {
+        columns: [
+          {
+            type: 'column',
+            name: 'Free',
+            color: colorService.black.normal,
+            data: $scope.newFreeUsers
+          },
+          {
+            type: 'column',
+            name: 'Paying',
+            color: colorService.blue.normal,
+            data: $scope.newPayingUsers
+          }
+        ],
+        lines: [
+          {
+            type: 'spline',
+            name: 'Total Nb of Subscriptions',
+            color: colorService.blue.normal,
+            data: $scope.nbSubscriptions
+          }
+        ]
+      };
+    };
+
+    apiService.NewFreeUsers.get(function(res) {
+      $scope.newFreeUsers = res.data;
+
+      if ($scope.isDataChart4Ready()) {
+        $scope.setDataChart4();
+      }
+    });
+
+    apiService.NewPayingUsers.get(function(res) {
+      $scope.newPayingUsers = res.data;
+
+      if ($scope.isDataChart4Ready()) {
+        $scope.setDataChart4();
+      }
+    });
 
     // #6
     var plansRepartition = [
@@ -205,32 +249,6 @@ module.controller('UsersCtrl',
         color: Highcharts.Color(colorService.grey.normal).brighten(0.15).get()
       }
     ];
-
-
-    $scope.dataChart4 = {
-      columns: [
-        {
-          type: 'column',
-          name: 'Free',
-          color: colorService.black.normal,
-          data: newFreeUsers
-        },
-        {
-          type: 'column',
-          name: 'Paying',
-          color: colorService.blue.normal,
-          data: newPayingUsers
-        }
-      ],
-      lines: [
-        {
-          type: 'spline',
-          name: 'Total Nb of Subscriptions',
-          color: colorService.blue.normal,
-          data: nbSubscriptions
-        }
-      ]
-    };
 
 
     $scope.dataChart6 = [];

@@ -33,7 +33,17 @@ module.factory('apiService', function(conf, $resource) {
         method: 'GET'
       }
     }),
-    UsersPerPlan: $resource(conf.epDbdApi + '/users/plans', {}, {
+    UsersPerPlan: $resource(conf.epDbdApi + '/plans/users', {}, {
+      'get': {
+        method: 'GET'
+      }
+    }),
+    NewPayingUsers: $resource(conf.epDbdApi + '/users/paying/new', {}, {
+      'get': {
+        method: 'GET'
+      }
+    }),
+    NewFreeUsers: $resource(conf.epDbdApi + '/users/free/new', {}, {
       'get': {
         method: 'GET'
       }
