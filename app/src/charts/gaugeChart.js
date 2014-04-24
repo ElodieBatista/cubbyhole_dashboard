@@ -11,13 +11,21 @@ module.directive('gaugeChart', function(colorService) {
     },
 
     link: function (scope, element, attrs) {
-      var data = [{
-        name: 'Usage',
-        data: [scope.data],
-        tooltip: {
-          valueSuffix: ' %'
+      scope.$watch('data', function(newValue, oldValue) {
+        if (scope.data) {
+          scope.draw();
         }
-      }];
+      });
+
+      scope.formatData = function() {
+        return [{
+          name: 'Usage',
+          data: [scope.data],
+          tooltip: {
+            valueSuffix: ' %'
+          }
+        }];
+      };
 
 
       $(element).highcharts({
@@ -76,7 +84,7 @@ module.directive('gaugeChart', function(colorService) {
           }]
         },
 
-        series: data
+        series: scope.formatData()
       });
     }
   };

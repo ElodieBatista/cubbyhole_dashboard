@@ -11,30 +11,42 @@ module.directive('lineChart', function() {
     },
 
     link: function (scope, element, attrs) {
-      $(element).highcharts({
-        chart: {},
-        title: {
-          text: scope.titleChart,
-          margin: 30,
-          style: {
-            fontVariant: 'small-caps',
-            fontSize: '18px'
-          }
-        },
-        tooltip: {
-          valueSuffix: '%'
-        },
-        xAxis: {
-          categories: ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec']
-        },
-        yAxis: {
-          min: 0,
-          title: {
-            text: ''
-          }
-        },
-        series: scope.data
+      scope.$watch('data', function(newValue, oldValue) {
+        if (scope.data) {
+          scope.draw();
+        }
       });
+
+      scope.formatData = function() {
+        return scope.data;
+      };
+
+      scope.draw = function() {
+        $(element).highcharts({
+          chart: {},
+          title: {
+            text: scope.titleChart,
+            margin: 30,
+            style: {
+              fontVariant: 'small-caps',
+              fontSize: '18px'
+            }
+          },
+          tooltip: {
+            valueSuffix: '%'
+          },
+          xAxis: {
+            categories: ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec']
+          },
+          yAxis: {
+            min: 0,
+            title: {
+              text: ''
+            }
+          },
+          series: scope.formatData()
+        });
+      };
     }
   };
 });
