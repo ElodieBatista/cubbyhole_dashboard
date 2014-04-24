@@ -59,6 +59,14 @@ h5 {
   padding-top: 115px;
 }
 
+.space-top-mini {
+  padding-top: 20px;
+}
+
+.space-bottom {
+  padding-bottom: 11px;
+}
+
 .center {
   text-align: center;
 }
@@ -156,7 +164,7 @@ spinner {
 }
 
 .modal-body {
-  max-height: 450px;
+  max-height: 550px;
   overflow-y: auto;
 }
 
@@ -854,4 +862,39 @@ td:first-child span:hover {
 
 .row-horizontal-space {
   margin-bottom: 30px;
+}
+
+
+.sp-replacer {
+  height: 45px;
+  width: 75px;
+  background-color: rgb(255, 255, 255);
+  border: 1px solid rgb(230, 230, 230);
+}
+
+.sp-dd {
+  padding-top: 10px;
+}
+
+.sp-preview {
+  height: 35px;
+  width: 50px;
+  border: 1px solid rgb(230, 230, 230);
+}
+
+.sp-container,
+.sp-replacer:hover, .sp-replacer.sp-active {
+  border: 1px solid rgb(230, 230, 230);
+}
+
+.sp-container {
+  background-color: rgb(255, 255, 255);
+}
+
+.sp-palette .sp-thumb-el:hover, .sp-palette .sp-thumb-el.sp-thumb-active {
+  border: 1px solid rgb(0, 0, 0);
+}
+
+.sp-palette-container {
+  border: none;
 }

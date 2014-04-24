@@ -25,7 +25,8 @@ module.directive('reportExplorer', function(colorService, $compile) {
               prop: 'time'
             }
           },
-          charttype: 'line'
+          charttype: 'line',
+          color: colorService.green.normal
         };
 
         scope.modalOpts = {
@@ -55,27 +56,27 @@ module.directive('reportExplorer', function(colorService, $compile) {
         return index === scope.modalform.metrics.metric3.prop;
       };
 
-      scope.createChart = function(type, data) {
+      scope.createChart = function(type, title, color, data) {
         var html = '';
 
         if (count % 2 === 0) {
-          $('#reports-container').append('<div class="row"><div class="col-md-6"></div></div>');
+          $('#reports-container').append('<div class="row space-top-mini"><div class="col-md-6"></div></div>');
         } else {
           $('#reports-container .row:last-of-type').append('<div class="col-md-6"></div>');
         }
 
         if (type === 'line') {
           scope.dataCharts.push([{
-            name: 'test',
-            color: Highcharts.Color(colorService.blue.normal).get(),
+            name: title,
+            color: Highcharts.Color(color).get(),
             data: data
           }]);
-          html = '<line-chart id="test2" class="chart-directive chart chart-border-blue" title-chart="\'test\'" data="dataCharts[' + count + ']"></line-chart>';
+          html = '<line-chart id="test2" class="chart-directive chart" title-chart="\'' + title + '\'" data="dataCharts[' + count + ']" style="border-top: 3px solid ' + color + '"></line-chart>';
         }
 
         var chart = $compile(html)(scope);
         $('#reports-container .row:last-of-type .col-md-6:last-of-type').append(chart);
-        $(window).trigger("resize");
+        $(window).trigger('resize');
         count++;
       };
     }

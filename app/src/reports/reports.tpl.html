@@ -1,14 +1,27 @@
 <div class="container container-fill no-padding no-margin">
-  <div class="row quaternary band-white">
+  <div class="row quaternary" report-explorer>
+    <div class="col-md-12 no-padding">
 
-    <div class="col-md-10 col-md-offset-1" report-explorer>
-      <div ng-include src="'/src/reports/reportsActionBar.tpl.html'"></div>
-
-      <div id="reports-container">
+      <div class="row">
+        <div class="col-md-12 band-white">
+          <div class="row">
+            <div class="col-md-10 col-md-offset-1">
+              <div ng-include src="'/src/reports/reportsActionBar.tpl.html'"></div>
+            </div>
+          </div>
+        </div>
       </div>
+
+      <div class="row">
+        <div class="col-md-10 col-md-offset-1">
+          <div id="reports-container">
+          </div>
+        </div>
+      </div>
+
     </div>
-
-    <modal modal-opts="modalOpts" modalform="modalform" modal-color="'quaternary'"></modal>
-
   </div>
+
+  <modal modal-opts="modalOpts" modalform="modalform" modal-color="'quaternary'"></modal>
+
 </div>

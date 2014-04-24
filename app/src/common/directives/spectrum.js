@@ -5,20 +5,23 @@ var module = angular.module('dashboardApp');
 /**
  * Defines the way to display a color picker
  */
-module.directive('spectrum', function() {
+module.directive('spectrum', function(colorService) {
   return {
     restrict: 'A',
 
     link: function (scope, element, attrs) {
       $("#spectrum").spectrum({
+        showInput: true,
         showPaletteOnly: true,
         showPalette: true,
-        color: 'blanchedalmond',
+        color: colorService.green.normal,
         palette: [
-          ['black', 'white', 'blanchedalmond',
-            'rgb(255, 128, 0);', 'hsv 100 70 50'],
-          ['red', 'yellow', 'green', 'blue', 'violet']
-        ]
+          [colorService.red.normal, colorService.blue.normal, colorService.orange.normal,
+            colorService.green.normal, colorService.pink.normal]
+        ],
+        change: function(color) {
+          $(this).val(color);
+        }
       });
     }
   };

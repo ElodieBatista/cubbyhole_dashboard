@@ -6,41 +6,49 @@
 
 <div class="row">
 
-  <div class="col-md-1 no-padding modal-mini-btn">
-    <input type="radio" name="radio-first" value="users" ng-model="modalform.metrics.metric1.prop">
-  </div>
+  <div class="col-md-6 no-padding">
+    <div class="row">
+      <div class="col-xs-2 no-padding modal-mini-btn">
+        <input type="radio" name="radio-first" value="users" ng-model="modalform.metrics.metric1.prop">
+      </div>
 
-  <div class="col-md-2 no-padding">
-    <span class="modal-input-label">Users</span>
-  </div>
+      <div class="col-xs-4 no-padding">
+        <span class="modal-input-label">Users</span>
+      </div>
 
-  <div class="col-md-3 no-padding">
-    <div class="input-prepend" ng-class="{'input-prepend-active': focused0, 'disabled': !modalOpts.radioFirst('users')}">
-      <i class="fa input-icon fa-users"></i>
-      <select ng-disabled="!modalOpts.radioFirst('users')" ng-model="modalform.metrics.metric1.filter" ng-init="focused0 = false" ng-focus="focused0 = true" ng-blur="focused0 = false" required>
-        <option value="all">All</option>
-        <option value="new">New</option>
-      </select>
+      <div class="col-xs-6 no-padding">
+        <div class="input-prepend" ng-class="{'input-prepend-active': focused0, 'disabled': !modalOpts.radioFirst('users')}">
+          <i class="fa input-icon fa-users"></i>
+          <select ng-disabled="!modalOpts.radioFirst('users')" ng-model="modalform.metrics.metric1.filter" ng-init="focused0 = false" ng-focus="focused0 = true" ng-blur="focused0 = false" required>
+            <option value="all">All</option>
+            <option value="new">New</option>
+          </select>
+        </div>
+      </div>
     </div>
   </div>
 
-  <div class="col-md-1 no-padding modal-mini-btn">
-    <input type="radio" name="radio-first" value="plans" ng-model="modalform.metrics.metric1.prop">
-  </div>
+  <div class="col-md-6 no-padding">
+    <div class="row">
+      <div class="col-xs-2 no-padding modal-mini-btn">
+        <input type="radio" name="radio-first" value="plans" ng-model="modalform.metrics.metric1.prop">
+      </div>
 
-  <div class="col-md-2 no-padding">
-    <span class="modal-input-label">Plan Usage</span>
-  </div>
+      <div class="col-xs-4 no-padding">
+        <span class="modal-input-label">Plan Usage</span>
+      </div>
 
-  <div class="col-md-3 no-padding">
-    <div class="input-prepend" ng-class="{'input-prepend-active': focused1, 'disabled': !modalOpts.radioFirst('plans')}">
-      <i class="fa input-icon fa-th"></i>
-      <select ng-disabled="!modalOpts.radioFirst('plans')" ng-model="modalform.metrics.metric1.filter" ng-init="focused1 = false" ng-focus="focused1 = true" ng-blur="focused1 = false" required>
-        <option value="all">All</option>
-        <option value="storage">Storage</option>
-        <option value="shared quota">Shared Quota</option>
-        <option value="bandwidth">Bandwidth</option>
-      </select>
+      <div class="col-xs-6 no-padding">
+        <div class="input-prepend" ng-class="{'input-prepend-active': focused1, 'disabled': !modalOpts.radioFirst('plans')}">
+          <i class="fa input-icon fa-th"></i>
+          <select ng-disabled="!modalOpts.radioFirst('plans')" ng-model="modalform.metrics.metric1.filter" ng-init="focused1 = false" ng-focus="focused1 = true" ng-blur="focused1 = false" required>
+            <option value="all">All</option>
+            <option value="storage">Storage</option>
+            <option value="shared quota">Shared Quota</option>
+            <option value="bandwidth">Bandwidth</option>
+          </select>
+        </div>
+      </div>
     </div>
   </div>
 
@@ -48,110 +56,118 @@
 
 <div class="row">
   <div class="col-md-6 no-padding">
-    <label class="modal-label">2nd Metric</label>
+    <div class="row">
+      <div class="col-xs-12 no-padding">
+        <label class="modal-label">2nd Metric</label>
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="col-xs-2 no-padding modal-mini-btn">
+        <input type="radio" name="radio-second" value="plan" ng-model="modalform.metrics.metric2.prop" ng-click="modalform.metrics.metric3.prop = 'time'; modalform.charttype = 'line';">
+      </div>
+
+      <div class="col-xs-4 no-padding">
+        <span class="modal-input-label">Plan</span>
+      </div>
+
+      <div class="col-xs-6 no-padding">
+        <div class="input-prepend" ng-class="{'input-prepend-active': focused2, 'disabled': !modalOpts.radioSecond('plan')}">
+          <i class="fa input-icon fa-th"></i>
+          <select ng-disabled="!modalOpts.radioSecond('plan')" ng-model="modalform.metrics.metric2.filter" ng-options="p._id as p.name for p in modalOpts.plans" ng-init="focused2 = false" ng-focus="focused2 = true" ng-blur="focused2 = false" required>
+            <option class="option-default" value=""></option>
+          </select>
+        </div>
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="col-xs-2 no-padding modal-mini-btn">
+        <input type="radio" name="radio-second" value="location" ng-model="modalform.metrics.metric2.prop" ng-click="modalform.metrics.metric3.prop = 'plan'; modalform.charttype = 'pie';">
+      </div>
+
+      <div class="col-xs-4 no-padding">
+        <span class="modal-input-label">Location</span>
+      </div>
+
+      <div class="col-xs-6 no-padding">
+        <div class="input-prepend" ng-class="{'input-prepend-active': focused3, 'disabled': !modalOpts.radioSecond('location')}">
+          <i class="fa input-icon fa-map-marker"></i>
+          <select ng-disabled="!modalOpts.radioSecond('location')" ng-model="modalform.metrics.metric2.filter" ng-options="l for l in modalOpts.locations" ng-init="focused3 = false" ng-focus="focused3 = true" ng-blur="focused3 = false" required>
+            <option class="option-default" value=""></option>
+          </select>
+        </div>
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="col-xs-2 no-padding modal-mini-btn">
+        <input type="radio" name="radio-second" value="time" ng-model="modalform.metrics.metric2.prop" ng-click="modalform.metrics.metric3.prop = 'location'; modalform.charttype = 'column';">
+      </div>
+
+      <div class="col-xs-4 no-padding">
+        <span class="modal-input-label">Time</span>
+      </div>
+
+      <div class="col-xs-6 no-padding">
+        <div class="input-prepend" ng-class="{'input-prepend-active': focused4, 'disabled': !modalOpts.radioSecond('time')}">
+          <i class="fa input-icon fa-clock-o"></i>
+          <select ng-disabled="!modalOpts.radioSecond('time')" ng-model="modalform.metrics.metric2.filter" ng-options="t for t in modalOpts.times" ng-init="focused4 = false" ng-focus="focused4 = true" ng-blur="focused4 = false" required>
+            <option class="option-default" value=""></option>
+          </select>
+        </div>
+      </div>
+    </div>
   </div>
+
   <div class="col-md-5 col-md-offset-1 no-padding">
-    <label class="modal-label">3rd Metric</label>
+    <div class="row">
+      <div class="col-xs-12 no-padding">
+        <label class="modal-label">3rd Metric</label>
+      </div>
+    </div>
+
+    <div class="row space-bottom">
+      <div class="col-xs-2 no-padding modal-mini-btn">
+        <input type="radio" ng-disabled="modalOpts.radioSecond('plan')" name="radio-third" value="plan" ng-model="modalform.metrics.metric3.prop">
+      </div>
+
+      <div class="col-xs-6 no-padding modal-input-label">
+        <span ng-class="{'disabled': modalOpts.radioSecond('plan')}">For each plan</span>
+      </div>
+    </div>
+
+    <div class="row space-bottom">
+      <div class="col-xs-2 no-padding modal-mini-btn">
+        <input type="radio" ng-disabled="modalOpts.radioSecond('location')" name="radio-third" value="location" ng-model="modalform.metrics.metric3.prop">
+      </div>
+
+      <div class="col-xs-6 no-padding modal-input-label">
+        <span ng-class="{'disabled': modalOpts.radioSecond('location')}">For each location</span>
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="col-xs-2 no-padding modal-mini-btn">
+        <input type="radio" ng-disabled="modalOpts.radioSecond('time')" name="radio-third" value="time" ng-model="modalform.metrics.metric3.prop">
+      </div>
+
+      <div class="col-xs-4 no-padding modal-input-label">
+        <span ng-class="{'disabled': modalOpts.radioSecond('time')}">Time</span>
+      </div>
+
+      <div class="col-xs-6 no-padding">
+        <div class="input-prepend" ng-class="{'input-prepend-active': focused5, 'disabled': modalOpts.radioSecond('time') || !modalOpts.radioThird('time')}">
+          <i class="fa input-icon fa-clock-o"></i>
+          <select ng-disabled="modalOpts.radioSecond('time') || !modalOpts.radioThird('time')" ng-model="modalform.metrics.metric3.filter" ng-options="t for t in modalOpts.times" ng-init="focused5 = false" ng-focus="focused5 = true" ng-blur="focused5 = false" required>
+            <option class="option-default" value=""></option>
+          </select>
+        </div>
+      </div>
+    </div>
   </div>
 </div>
 
-<div class="row">
-
-  <div class="col-md-1 no-padding modal-mini-btn">
-    <input type="radio" name="radio-second" value="plan" ng-model="modalform.metrics.metric2.prop" ng-click="modalform.metrics.metric3.prop = 'time'; modalform.charttype = 'line';">
-  </div>
-
-  <div class="col-md-2 no-padding">
-    <span class="modal-input-label">Plan</span>
-  </div>
-
-  <div class="col-md-3 no-padding">
-    <div class="input-prepend" ng-class="{'input-prepend-active': focused2, 'disabled': !modalOpts.radioSecond('plan')}">
-      <i class="fa input-icon fa-th"></i>
-      <select ng-disabled="!modalOpts.radioSecond('plan')" ng-model="modalform.metrics.metric2.filter" ng-options="p._id as p.name for p in modalOpts.plans" ng-init="focused2 = false" ng-focus="focused2 = true" ng-blur="focused2 = false" required>
-        <option class="option-default" value=""></option>
-      </select>
-    </div>
-  </div>
-
-  <div class="col-md-1 col-md-offset-1 no-padding modal-mini-btn">
-    <input type="radio" ng-disabled="modalOpts.radioSecond('plan')" name="radio-third" value="plan" ng-model="modalform.metrics.metric3.prop">
-  </div>
-
-  <div class="col-md-2 no-padding modal-input-label">
-    <span ng-class="{'disabled': modalOpts.radioSecond('plan')}">For each plan</span>
-  </div>
-
-</div>
-
-
-<div class="row">
-
-  <div class="col-md-1 no-padding modal-mini-btn">
-    <input type="radio" name="radio-second" value="location" ng-model="modalform.metrics.metric2.prop" ng-click="modalform.metrics.metric3.prop = 'plan'; modalform.charttype = 'pie';">
-  </div>
-
-  <div class="col-md-2 no-padding">
-    <span class="modal-input-label">Location</span>
-  </div>
-
-  <div class="col-md-3 no-padding">
-    <div class="input-prepend" ng-class="{'input-prepend-active': focused3, 'disabled': !modalOpts.radioSecond('location')}">
-      <i class="fa input-icon fa-map-marker"></i>
-      <select ng-disabled="!modalOpts.radioSecond('location')" ng-model="modalform.metrics.metric2.filter" ng-options="l for l in modalOpts.locations" ng-init="focused3 = false" ng-focus="focused3 = true" ng-blur="focused3 = false" required>
-        <option class="option-default" value=""></option>
-      </select>
-    </div>
-  </div>
-
-  <div class="col-md-1 col-md-offset-1 no-padding modal-mini-btn">
-    <input type="radio" ng-disabled="modalOpts.radioSecond('location')" name="radio-third" value="location" ng-model="modalform.metrics.metric3.prop">
-  </div>
-
-  <div class="col-md-3 no-padding modal-input-label">
-    <span ng-class="{'disabled': modalOpts.radioSecond('location')}">For each location</span>
-  </div>
-
-</div>
-
-
-<div class="row">
-
-  <div class="col-md-1 no-padding modal-mini-btn">
-    <input type="radio" name="radio-second" value="time" ng-model="modalform.metrics.metric2.prop" ng-click="modalform.metrics.metric3.prop = 'location'; modalform.charttype = 'column';">
-  </div>
-
-  <div class="col-md-2 no-padding">
-    <span class="modal-input-label">Time</span>
-  </div>
-
-  <div class="col-md-3 no-padding">
-    <div class="input-prepend" ng-class="{'input-prepend-active': focused4, 'disabled': !modalOpts.radioSecond('time')}">
-      <i class="fa input-icon fa-clock-o"></i>
-      <select ng-disabled="!modalOpts.radioSecond('time')" ng-model="modalform.metrics.metric2.filter" ng-options="t for t in modalOpts.times" ng-init="focused4 = false" ng-focus="focused4 = true" ng-blur="focused4 = false" required>
-        <option class="option-default" value=""></option>
-      </select>
-    </div>
-  </div>
-
-  <div class="col-md-1 col-md-offset-1 no-padding modal-mini-btn">
-    <input type="radio" ng-disabled="modalOpts.radioSecond('time')" name="radio-third" value="time" ng-model="modalform.metrics.metric3.prop">
-  </div>
-
-  <div class="col-md-1 no-padding modal-input-label">
-    <span ng-class="{'disabled': modalOpts.radioSecond('time')}">Time</span>
-  </div>
-
-  <div class="col-md-3 no-padding">
-    <div class="input-prepend" ng-class="{'input-prepend-active': focused5, 'disabled': modalOpts.radioSecond('time') || !modalOpts.radioThird('time')}">
-      <i class="fa input-icon fa-clock-o"></i>
-      <select ng-disabled="modalOpts.radioSecond('time') || !modalOpts.radioThird('time')" ng-model="modalform.metrics.metric3.filter" ng-options="t for t in modalOpts.times" ng-init="focused5 = false" ng-focus="focused5 = true" ng-blur="focused5 = false" required>
-        <option class="option-default" value=""></option>
-      </select>
-    </div>
-  </div>
-
-</div>
 
 <div class="row">
   <div class="col-md-12 no-padding">
@@ -161,69 +177,88 @@
 
 <div class="row">
 
-  <div class="col-md-1 no-padding modal-mini-btn">
-    <input type="radio" ng-disabled="!modalOpts.radioThird('time')" name="radio-chart" value="line" ng-model="modalform.charttype">
+  <div class="col-md-4">
+    <div class="row">
+      <div class="col-xs-2 no-padding modal-mini-btn">
+        <input type="radio" ng-disabled="!modalOpts.radioThird('time')" name="radio-chart" value="line" ng-model="modalform.charttype">
+      </div>
+
+      <div class="col-xs-4 no-padding modal-input-label">
+        <span ng-class="{'disabled': !modalOpts.radioThird('time')}">Line</span>
+      </div>
+
+      <div class="col-xs-2 no-padding">
+
+      </div>
+    </div>
   </div>
 
-  <div class="col-md-2 no-padding modal-input-label">
-    <span ng-class="{'disabled': !modalOpts.radioThird('time')}">Line</span>
+
+  <div class="col-md-4">
+    <div class="row">
+      <div class="col-xs-2 no-padding modal-mini-btn">
+        <input type="radio" ng-disabled="modalOpts.radioThird('time')" name="radio-chart" value="pie" ng-model="modalform.charttype">
+      </div>
+
+      <div class="col-xs-4 no-padding modal-input-label">
+        <span ng-class="{'disabled': modalOpts.radioThird('time')}">Pie</span>
+      </div>
+
+      <div class="col-xs-2 no-padding">
+
+      </div>
+    </div>
   </div>
 
-  <div class="col-md-1 no-padding">
 
-  </div>
+  <div class="col-md-4">
+    <div class="row">
+      <div class="col-xs-2 no-padding modal-mini-btn">
+        <input type="radio" name="radio-chart" value="column" ng-model="modalform.charttype">
+      </div>
 
-  <div class="col-md-1 no-padding modal-mini-btn">
-    <input type="radio" ng-disabled="modalOpts.radioThird('time')" name="radio-chart" value="pie" ng-model="modalform.charttype">
-  </div>
+      <div class="col-xs-4 no-padding modal-input-label">
+        <span>Column</span>
+      </div>
 
-  <div class="col-md-2 no-padding modal-input-label">
-    <span ng-class="{'disabled': modalOpts.radioThird('time')}">Pie</span>
-  </div>
+      <div class="col-xs-2 no-padding">
 
-  <div class="col-md-1 no-padding">
-
-  </div>
-
-  <div class="col-md-1 no-padding modal-mini-btn">
-    <input type="radio" name="radio-chart" value="column" ng-model="modalform.charttype">
-  </div>
-
-  <div class="col-md-2 no-padding modal-input-label">
-    <span>Column</span>
-  </div>
-
-  <div class="col-md-1 no-padding">
-
+      </div>
+    </div>
   </div>
 
 </div>
 
 <div class="row">
   <div class="col-md-6 no-padding">
-    <label class="modal-label">Chart Title</label>
+    <div class="row">
+      <div class="col-md-12  no-padding">
+        <label class="modal-label">Chart Title</label>
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="col-md-12">
+        <div class="input-prepend" ng-class="{'input-prepend-active': focused6}">
+          <i class="fa input-icon fa-folder"></i>
+          <input class="input-text input-text-empty-onclose no-autofocus" type="text" placeholder="Chart Title" required ng-model="modalform.title" ng-init="focused6 = false" ng-focus="focused6 = true" ng-blur="focused6 = false" />
+        </div>
+      </div>
+    </div>
   </div>
+
   <div class="col-md-6 no-padding">
-    <label class="modal-label">Chart Color</label>
-  </div>
-</div>
-
-<div class="row">
-  <div class="col-md-6">
-
-    <div class="input-prepend" ng-class="{'input-prepend-active': focused6}">
-      <i class="fa input-icon fa-folder"></i>
-      <input class="input-text input-text-empty-onclose" type="text" placeholder="Chart Title" required ng-model="modalform.name" ng-init="focused6 = false" ng-focus="focused6 = true" ng-blur="focused6 = false" />
+    <div class="row">
+      <div class="col-md-12  no-padding">
+        <label class="modal-label">Chart Color</label>
+      </div>
     </div>
 
-  </div>
-
-  <div class="col-md-6">
-
-    <div class="input-prepend" ng-class="{'input-prepend-active': focused7}">
-      <i class="fa input-icon fa-folder"></i>
-      <input spectrum type="text" id="spectrum" required ng-model="modalform.color" ng-init="focused7 = false" ng-focus="focused7 = true" ng-blur="focused7 = false" />
+    <div class="row">
+      <div class="col-md-12">
+        <input spectrum type="text" id="spectrum" ng-model="modalform.color" />
+      </div>
     </div>
-
   </div>
+
 </div>

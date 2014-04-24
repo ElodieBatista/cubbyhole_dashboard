@@ -34,7 +34,7 @@ module.controller('ReportsCtrl',
     $scope.createReport = function(form) {
       console.log(form);
 
-      $scope.createChart(form.charttype, $scope.fakeAllusersFree2014);
+      $scope.createChart(form.charttype, form.title, form.color, $scope.fakeAllusersFree2014);
     };
   }
 );
