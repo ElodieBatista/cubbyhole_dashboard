@@ -15,13 +15,49 @@ module.config(function config($routeProvider) {
 module.controller('UsersCtrl',
   function UsersCtrl($scope, apiService, colorService) {
     // #1
-    var newUsers = [];
+    $scope.isDataChart1Ready = function() {
+      return $scope.newUsers && $scope.users;
+    };
+
+    $scope.setDataChart1 = function() {
+      $scope.dataChart1 = {
+        columns: [
+          {
+            type: 'column',
+            name: 'New Users',
+            color: colorService.red.normal,
+            data: $scope.newUsers
+          }
+        ],
+        lines: [
+          {
+            type: 'spline',
+            name: 'Total Nb of Users',
+            color: colorService.red.normal,
+            data: $scope.users
+          }
+        ]
+      };
+    };
 
     apiService.NewUsers.get(function(res) {
-      newUsers = res;
+      $scope.newUsers = res.data;
+
+      if ($scope.isDataChart1Ready()) {
+        $scope.setDataChart1();
+      }
     });
-    //var newUsers = [10, 25, 101, 30, 4, 60, 45, 80, 150, 208, 350, 42];
-    var users = [10, 35, 136, 166, 170, 230, 275, 355, 505, 713, 1063, 1095];
+
+    apiService.TotalUsers.get(function(res) {
+      $scope.users = res.data;
+
+      if ($scope.isDataChart1Ready()) {
+        $scope.setDataChart1();
+      }
+
+      $scope.nbUsers = $scope.users[11];
+    });
+
 
     // #2 & #5
     var usersPerPlan = [
@@ -99,29 +135,12 @@ module.controller('UsersCtrl',
       }
     ];
 
-    $scope.nbUsers = users[11];
+
     $scope.newUsersToday = 85;
     $scope.subscriptionsToday = 40;
     $scope.payingUsersToday = 12;
 
-    $scope.dataChart1 = {
-      columns: [
-        {
-          type: 'column',
-          name: 'New Users',
-          color: colorService.red.normal,
-          data: newUsers
-        }
-      ],
-      lines: [
-        {
-          type: 'spline',
-          name: 'Total Nb of Users',
-          color: colorService.red.normal,
-          data: users
-        }
-      ]
-    };
+
 
     var sum = [], categories = [], values = [];
     for (var i = 0, l = usersPerPlan.length; i < l; i++) {
