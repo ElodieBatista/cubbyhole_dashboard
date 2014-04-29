@@ -79,3 +79,12 @@ tspan {
 .stats-bloc-black   {   background-color: rgb(50, 50, 50);    }
 .stats-bloc-orange  {   background-color: rgb(255, 147, 30);  }
 .stats-bloc-green   {   background-color: rgb(122, 201, 67);  }
+
+.chart-btn {
+  position: relative;
+  right: 15px;
+  top: 35px;
+  float: right;
+  z-index: 30;
+  cursor: pointer;
+}

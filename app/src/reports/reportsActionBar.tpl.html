@@ -1,6 +1,13 @@
 <div class="row action-bar">
   <ul class="action-bar-right">
 
+    <li class="action-bar-item" ng-show="itemActive" ng-click="reOpenModalDeleteReport(itemActive)">
+      <ng-include class="action-bar-icon" src="'/styles/icons/icon_delete.svg'"></ng-include>
+      <span>Delete</span>
+    </li>
+
+    <li class="action-bar-separator" ng-show="itemActive"></li>
+
     <li class="action-bar-item" ng-click="reOpenModalNewReport()">
       <ng-include class="action-bar-icon" src="'/styles/icons/icon_plus.svg'"></ng-include>
       <span>New Report</span>

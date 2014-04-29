@@ -14,6 +14,10 @@ module.config(function config($routeProvider) {
 
 module.controller('ReportsCtrl',
   function ReportsCtrl($scope, apiService) {
+    $scope.reports = {
+      count: 0
+    };
+
     apiService.Plans.get(function(res) {
       $scope.plans = res.data;
       $scope.plans.push({

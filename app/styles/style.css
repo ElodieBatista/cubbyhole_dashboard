@@ -157,6 +157,10 @@ spinner {
   margin-bottom: 0 !important;
 }
 
+.clear {
+  clear: both;
+}
+
 
 /* BOOTSTRAP */
 .modal-footer {
