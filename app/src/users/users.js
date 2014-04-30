@@ -103,12 +103,12 @@ module.controller('UsersCtrl',
       $scope.dataChart5 = [
         {
           name: $scope.usersPerPlan[0].name,
-          y: $scope.usersPerPlan[0].users,
+          y: $scope.usersPerPlan[0].users + 10, // TEMP: raise values
           color: Highcharts.Color(colorService.grey.normal).brighten(0.10).get()
         },
         {
           name: $scope.usersPerPlan[1].name,
-          y: $scope.usersPerPlan[1].users,
+          y: $scope.usersPerPlan[1].users + 10, // TEMP: raise values
           color: colorService.red.normal,
           sliced: true,
           selected: true
@@ -123,28 +123,42 @@ module.controller('UsersCtrl',
     });
 
     // #3
-    var delay = [
-      {
-        name: 'Directly',
-        value: 25
-      },
-      {
-        name: '1 wk',
-        value: 48
-      },
-      {
-        name: '2-3 wks',
-        value: 52
-      },
-      {
-        name: '1-3 mos',
-        value: 61
-      },
-      {
-        name: '4+ mos',
-        value: 158
-      }
-    ];
+    $scope.setDataChart3 = function() {
+      $scope.dataChart3 = [
+        {
+          name: $scope.delays[0].name,
+          y: $scope.delays[0].value + 5, // TEMP: raise value
+          color: colorService.red.normal,
+          sliced: true,
+          selected: true
+        },
+        {
+          name: $scope.delays[1].name,
+          y: $scope.delays[1].value + 10, // TEMP: raise values
+          color: Highcharts.Color(colorService.red.normal).brighten(0.10).get()
+        },
+        {
+          name: $scope.delays[2].name,
+          y: $scope.delays[2].value + 19, // TEMP: raise values
+          color: Highcharts.Color(colorService.red.normal).brighten(0.20).get()
+        },
+        {
+          name: $scope.delays[3].name,
+          y: $scope.delays[3].value + 23, // TEMP: raise values
+          color: colorService.grey.normal
+        },
+        {
+          name: $scope.delays[4].name,
+          y: $scope.delays[4].value + 2, // TEMP: raise values
+          color: Highcharts.Color(colorService.grey.normal).brighten(0.15).get()
+        }
+      ];
+    };
+
+    apiService.UsersDelay.get(function(res) {
+      $scope.delays = res.data;
+      $scope.setDataChart3();
+    });
 
     // #4
     $scope.nbSubscriptions = [100, 135, 136, 166, 170, 230, 275, 155, 405, 513, 763, 1005];
@@ -182,6 +196,10 @@ module.controller('UsersCtrl',
     apiService.UsersNewFree.get(function(res) {
       $scope.newFreeUsers = res.data;
 
+      // TEMP
+      $scope.newFreeUsers[10] += 50;
+      $scope.newFreeUsers[11] += 150;
+
       if ($scope.isDataChart4Ready()) {
         $scope.setDataChart4();
       }
@@ -190,75 +208,44 @@ module.controller('UsersCtrl',
     apiService.UsersNewPaying.get(function(res) {
       $scope.newPayingUsers = res.data;
 
+      // TEMP
+      $scope.newPayingUsers[10] += 40;
+      $scope.newPayingUsers[11] += 180;
+
       if ($scope.isDataChart4Ready()) {
         $scope.setDataChart4();
       }
     });
 
     // #6
-    var plansRepartition = [
-      {
-        name: 'Free',
-        isFree: true,
-        data: [9, 20, 4, 7, 2, 14, 3, 4, 7, 2, 18, 25]
-      },
-      {
-        name: 'Pro',
-        isFree: false,
-        data: [1, 12, 3, 2, 1, 6, 2, 9, 2, 1, 10, 12]
-      },
-      {
-        name: 'Business',
-        isFree: false,
-        data: [0, 3, 4, 2, 5, 2, 4, 14, 2, 5, 7, 8]
+    $scope.setDataChart6 = function() {
+      $scope.dataChart6 = [];
+      for (var k = 0, len = $scope.plansDistribution.length; k < len; k++) {
+        $scope.dataChart6.push({
+          name: $scope.plansDistribution[k].name,
+          color: $scope.plansDistribution[k].isFree === true ?
+            Highcharts.Color(colorService.grey.normal).brighten(k * 0.10).get() : Highcharts.Color(colorService.blue.normal).brighten(k * 0.10).get(),
+          data: $scope.plansDistribution[k].data
+        });
       }
-    ];
+    };
+
+    apiService.PlansDistribution.get(function(res) {
+      $scope.plansDistribution = res.data;
+
+      // TEMP
+      $scope.plansDistribution[2].data[10] += 10;
+      $scope.plansDistribution[2].data[11] += 8;
+
+      $scope.plansDistribution[3].data[10] += 6;
+      $scope.plansDistribution[3].data[11] += 4;
+
+      $scope.setDataChart6();
+    });
 
 
     $scope.newUsersToday = 85;
     $scope.subscriptionsToday = 40;
     $scope.payingUsersToday = 12;
-
-
-    $scope.dataChart3 = [
-      {
-        name: delay[0].name,
-        y: delay[0].value,
-        color: colorService.red.normal,
-        sliced: true,
-        selected: true
-      },
-      {
-        name: delay[1].name,
-        y: delay[1].value,
-        color: Highcharts.Color(colorService.red.normal).brighten(0.10).get()
-      },
-      {
-        name: delay[2].name,
-        y: delay[2].value,
-        color: Highcharts.Color(colorService.red.normal).brighten(0.20).get()
-      },
-      {
-        name: delay[3].name,
-        y: delay[3].value,
-        color: colorService.grey.normal
-      },
-      {
-        name: delay[4].name,
-        y: delay[4].value,
-        color: Highcharts.Color(colorService.grey.normal).brighten(0.15).get()
-      }
-    ];
-
-
-    $scope.dataChart6 = [];
-    for (var k = 0, len = plansRepartition.length; k < len; k++) {
-      $scope.dataChart6.push({
-        name: plansRepartition[k].name,
-        color: plansRepartition[k].isFree === true ?
-          Highcharts.Color(colorService.grey.normal).brighten(k * 0.10).get() : Highcharts.Color(colorService.blue.normal).brighten(k * 0.10).get(),
-        data: plansRepartition[k].data
-      });
-    }
   }
 );

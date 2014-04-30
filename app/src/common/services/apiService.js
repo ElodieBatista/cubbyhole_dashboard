@@ -43,6 +43,11 @@ module.factory('apiService', function(conf, $resource) {
         method: 'GET'
       }
     }),
+    UsersDelay: $resource(conf.epDbdApi + '/users/delay', {}, {
+      'get': {
+        method: 'GET'
+      }
+    }),
 
     Plans: $resource(conf.epApi + '/plan', {}, {
       'get': {
@@ -50,6 +55,17 @@ module.factory('apiService', function(conf, $resource) {
       }
     }),
     PlansUsers: $resource(conf.epDbdApi + '/plans/users', {}, {
+      'get': {
+        method: 'GET'
+      }
+    }),
+    PlansDistribution: $resource(conf.epDbdApi + '/plans/distribution', {}, {
+      'get': {
+        method: 'GET'
+      }
+    }),
+
+    Years: $resource(conf.epDbdApi + '/plans/years', {}, {
       'get': {
         method: 'GET'
       }
