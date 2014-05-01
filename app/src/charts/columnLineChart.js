@@ -2,7 +2,7 @@
 
 var module = angular.module('dashboardApp');
 
-module.directive('columnLineChart', function() {
+module.directive('columnLineChart', function(chartService) {
   return {
     restrict: 'E',
     scope: {
@@ -43,7 +43,7 @@ module.directive('columnLineChart', function() {
             }
           },
           xAxis: {
-            categories: ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec']
+            categories: chartService.getMonths()
           },
           yAxis: {
             min: 0,

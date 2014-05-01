@@ -2,7 +2,7 @@
 
 var module = angular.module('dashboardApp');
 
-module.directive('lineChart', function() {
+module.directive('lineChart', function(chartService) {
   return {
     restrict: 'E',
     scope: {
@@ -36,7 +36,7 @@ module.directive('lineChart', function() {
             valueSuffix: '%'
           },
           xAxis: {
-            categories: ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec']
+            categories: chartService.getMonths()
           },
           yAxis: {
             min: 0,
