@@ -13,9 +13,13 @@ module.config(function config($routeProvider) {
 });
 
 module.controller('LocationsCtrl',
-  function LocationsCtrl($scope, colorService) {
+  function LocationsCtrl($scope, apiService, colorService) {
     $scope.color = colorService.orange.dark;
-    $scope.users = [
+
+    apiService.UsersLocation.get(function(res) {
+      $scope.users = res.data;
+    });
+    /*$scope.users = [
       {
         name: 'africa',
         value: 10
@@ -40,6 +44,6 @@ module.controller('LocationsCtrl',
         name: 'south_america',
         value: 23
       }
-    ];
+    ];*/
   }
 );

@@ -12,6 +12,12 @@ module.directive('mapChart', function(colorService) {
     },
 
     link: function (scope, element, attrs) {
+      scope.$watch('data', function(newValue, oldValue) {
+        if (scope.data) {
+          scope.draw();
+        }
+      });
+
       var coordinates = [
         {
           name: 'africa',
@@ -46,66 +52,86 @@ module.directive('mapChart', function(colorService) {
       ];
 
 
-      var max = 0, sum = 0;
-      for (var i = 0, l = scope.data.length; i < l; i++) {
-        if (scope.data[i].value > max) {
-          max = scope.data[i].value;
+      scope.draw = function() {
+        for (var i = 0, l = scope.data.length; i < l; i++) {
+          // TEMP: raise values
+          scope.data[i].value += Math.floor((Math.random() * 50) + 1);
         }
-        sum += scope.data[i].value;
-      }
 
-      var areas = [],
-          images = [];
-      for (var j = 0, le = scope.data.length; j < le; j++) {
-        areas.push({
-          id: scope.data[j].name,
-          value: scope.data[j].value,
-          outlineColor: colorService.grey.normal,
-          outlineAlpha: 1,
-          color: 'rgba(0, 0, 0, ' + ((scope.data[j].value * 100) / max) / 100 + ')'
+        var max = scope.data[0].value, sum = 0;
+        for (var i = 0, l = scope.data.length; i < l; i++) {
+          if (scope.data[i].value > max) {
+            max = scope.data[i].value;
+          }
+          sum += scope.data[i].value;
+        }
+
+        var areas = [],
+            images = [];
+        for (var j = 0, le = scope.data.length; j < le; j++) {
+          areas.push({
+            id: scope.data[j].name,
+            value: scope.data[j].value,
+            outlineColor: colorService.grey.normal,
+            outlineAlpha: 1,
+            color: 'rgba(0, 0, 0, ' + ((scope.data[j].value * 100) / max) / 100 + ')'
+          });
+
+          if (sum > 0) {
+            scope.data[j].percent = Math.round((scope.data[j].value * 100) / sum);
+          } else {
+            scope.data[j].percent = 0;
+          }
+
+          scope.data[j].scale = scope.data[j].percent / 10;
+
+          if (scope.data[j].scale < 1) {
+            scope.data[j].scale = 1;
+          }
+
+          images.push({
+            latitude: coordinates[j].latitude,
+            longitude: coordinates[j].longitude,
+            type: 'circle',
+            color: scope.color,
+            scale: scope.data[j].scale.toString(),
+            label: scope.data[j].percent + '%',
+            labelColor: (scope.data[j].percent <= 10 ? scope.color : colorService.white.normal)
+          });
+        }
+
+        max = scope.data[0].percent;
+        for (var i = 0, l = scope.data.length; i < l; i++) {
+          if (scope.data[i].percent > max) {
+            max = scope.data[i].percent;
+          }
+        }
+
+        var map = AmCharts.makeChart('location-map', {
+          type: 'map',
+          theme: 'customChalk',
+          pathToImages: '/src/lib/ammap/images/',
+          mouseWheelZoomEnabled: true,
+
+          dataProvider: {
+            map: 'continentsLow',
+            zoomLevel: 1,
+            areas: areas,
+            images: images
+          },
+          areasSettings: {
+            autoZoom: false,
+            balloonText: '[[title]]: [[value]] users'
+          },
+          valueLegend: {
+            right: 10,
+            minValue: 0,
+            maxValue: max + '%'
+          }
         });
-        scope.data[j].percent = Math.round((scope.data[j].value * 100) / sum);
-        scope.data[j].scale = scope.data[j].percent / 10;
 
-        if (scope.data[j].scale < 1) {
-          scope.data[j].scale = 1;
-        }
-
-        images.push({
-          latitude: coordinates[j].latitude,
-          longitude: coordinates[j].longitude,
-          type: 'circle',
-          color: scope.color,
-          scale: scope.data[j].scale.toString(),
-          label: scope.data[j].percent + '%',
-          labelColor: (scope.data[j].percent <= 10 ? scope.color : colorService.white.normal)
-        });
-      }
-
-      var map = AmCharts.makeChart('location-map', {
-        type: 'map',
-        theme: 'customChalk',
-        pathToImages: '/src/lib/ammap/images/',
-        mouseWheelZoomEnabled: true,
-
-        dataProvider: {
-          map: 'continentsLow',
-          zoomLevel: 1,
-          areas: areas,
-          images: images
-        },
-        areasSettings: {
-          autoZoom: false,
-          balloonText: '[[title]]: [[value]] users'
-        },
-        valueLegend: {
-          right: 10,
-          minValue: '0',
-          maxValue: max
-        }
-      });
-
-      map.addLabel(0, 605, scope.title, 'center', '30', scope.color, 0, 1, false);
+        map.addLabel(0, 605, scope.title, 'center', '30', scope.color, 0, 1, false);
+      };
     }
   };
 });

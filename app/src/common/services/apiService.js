@@ -48,6 +48,11 @@ module.factory('apiService', function(conf, $resource) {
         method: 'GET'
       }
     }),
+    UsersLocation: $resource(conf.epDbdApi + '/users/location', {}, {
+      'get': {
+        method: 'GET'
+      }
+    }),
 
     Plans: $resource(conf.epApi + '/plan', {}, {
       'get': {

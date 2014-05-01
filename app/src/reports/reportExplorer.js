@@ -69,9 +69,9 @@ module.directive('reportExplorer', function(colorService, $compile) {
         var id = 'chart' + Date.now();
 
         if (scope.reports.count % 2 === 0 && !freePlace) {
-          $('#reports-container').append($compile('<div class="row space-top-mini"><div id="' + id + '" class="col-md-6"><span class="chart-btn" ng-click="toggleItem(reports[\'' + id + '\'])">Select</span></div></div>')(scope));
+          $('#reports-container').append($compile('<div class="row space-top-mini"><div id="' + id + '" class="col-md-6"><input type="checkbox" class="chart-btn" ng-checked="{true:\'itemActive\',false:\'\'}[itemActive === reports[\'' + id + '\']]" ng-click="toggleItem(reports[\'' + id + '\'])"></div></div>')(scope));
         } else {
-          $('#reports-container .row:last-of-type').append($compile('<div id="' + id + '" class="col-md-6"><span class="chart-btn" ng-click="toggleItem(reports[\'' + id + '\'])">Select</span></div>')(scope));
+          $('#reports-container .row:last-of-type').append($compile('<div id="' + id + '" class="col-md-6"><input type="checkbox" class="chart-btn" ng-checked="{true:\'itemActive\',false:\'\'}[itemActive === reports[\'' + id + '\']]" ng-click="toggleItem(reports[\'' + id + '\'])"></div>')(scope));
         }
 
 
@@ -108,7 +108,9 @@ module.directive('reportExplorer', function(colorService, $compile) {
 
         var chart = $compile(html)(scope);
         $('#reports-container .row:last-of-type .col-md-6:last-of-type').append(chart);
-        $(window).trigger('resize');
+        setTimeout(function() {
+          $(window).trigger('resize');
+        }, 1000);
         scope.reports.count++;
       };
 
