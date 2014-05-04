@@ -244,7 +244,10 @@ module.controller('UsersCtrl',
     });
 
 
-    $scope.newUsersToday = 85;
+    apiService.UsersNewToday.get(function(res) {
+      $scope.newUsersToday = res.data;
+    });
+
     $scope.subscriptionsToday = 40;
     $scope.payingUsersToday = 12;
   }

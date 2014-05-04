@@ -28,6 +28,11 @@ module.factory('apiService', function(conf, $resource) {
         method: 'GET'
       }
     }),
+    UsersNewToday: $resource(conf.epDbdApi + '/users/new/today', {}, {
+      'get': {
+        method: 'GET'
+      }
+    }),
     UsersTotal: $resource(conf.epDbdApi + '/users/total', {}, {
       'get': {
         method: 'GET'
