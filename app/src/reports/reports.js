@@ -34,7 +34,9 @@ module.controller('ReportsCtrl',
       $scope.times = res.data;
     });
 
-    $scope.locations = ['Africa', 'Asia', 'Australia', 'Europe', 'North America', 'South America'];
+    apiService.Locations.get(function(res) {
+      $scope.locations = res.data;
+    });
 
     $scope.fakeAllusersFree2014 = [10, 35, 136, 166, 170, 230, 275, 355, 505, 713, 1063, 1095];
     $scope.fakeAllusersEuropePerPlan = [

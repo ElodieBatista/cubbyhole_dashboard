@@ -248,7 +248,12 @@ module.controller('UsersCtrl',
       $scope.newUsersToday = res.data;
     });
 
-    $scope.subscriptionsToday = 40;
-    $scope.payingUsersToday = 12;
+    apiService.UsersNewPayingToday.get(function(res) {
+      $scope.payingUsersToday = res.data;
+    });
+
+    /*apiService.UsersNewToday.get(function(res) {
+      $scope.subscriptionsToday = res.data;
+    });*/
   }
 );

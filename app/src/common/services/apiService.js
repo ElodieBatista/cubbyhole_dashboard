@@ -33,6 +33,11 @@ module.factory('apiService', function(conf, $resource) {
         method: 'GET'
       }
     }),
+    UsersNewPayingToday: $resource(conf.epDbdApi + '/users/paying/today', {}, {
+      'get': {
+        method: 'GET'
+      }
+    }),
     UsersTotal: $resource(conf.epDbdApi + '/users/total', {}, {
       'get': {
         method: 'GET'
@@ -76,6 +81,12 @@ module.factory('apiService', function(conf, $resource) {
     }),
 
     Years: $resource(conf.epDbdApi + '/plans/years', {}, {
+      'get': {
+        method: 'GET'
+      }
+    }),
+
+    Locations: $resource(conf.epDbdApi + '/location', {}, {
       'get': {
         method: 'GET'
       }
