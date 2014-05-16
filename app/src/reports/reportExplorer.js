@@ -39,7 +39,7 @@ module.directive('reportExplorer', function(colorService, $compile) {
         scope.modalOpts = {
           title: 'Create a report',
           submitBtnVal: 'Create',
-          submitFn: scope.createReport,
+          submitFn: scope.reGenerateReport,
           plans: scope.plans,
           locations: scope.locations,
           times: scope.times,
@@ -47,6 +47,11 @@ module.directive('reportExplorer', function(colorService, $compile) {
           templateUrl: 'src/reports/tpls/newReport.tpl.html'
         };
         $('#appmodal').modal('show');
+      };
+
+      scope.reGenerateReport = function(form) {
+        scope.reSaveFormReport(form);
+        scope.createReport(form);
       };
 
       scope.reOpenModalDeleteReport = function(report) {
@@ -79,6 +84,7 @@ module.directive('reportExplorer', function(colorService, $compile) {
           scope.reports[id] = [{
             id: id,
             name: title,
+            type: type,
             color: Highcharts.Color(color).get(),
             data: data
           }];
@@ -88,6 +94,7 @@ module.directive('reportExplorer', function(colorService, $compile) {
           for (var i = 0, l = data.length; i < l; i++) {
             dataToSave.push({
               name: data[i].name,
+              type: type,
               y: data[i].value,
               color: Highcharts.Color(color).brighten(i * (0.15/l)).get()
             });
@@ -101,6 +108,7 @@ module.directive('reportExplorer', function(colorService, $compile) {
           data.series[0].color = color;
           data.id = id;
           data.name = title;
+          data.type = type;
           scope.reports[id] = data;
 
           html = '<column-chart class="chart-directive chart clear" title-chart="\'' + title + '\'" data="reports[\'' + id + '\']" style="border-top: 3px solid ' + color + '"></column-chart>';
@@ -127,6 +135,32 @@ module.directive('reportExplorer', function(colorService, $compile) {
 
         scope.reports.count--;
       };
+
+      scope.reDrawReports = function() {
+        if (localStorage.formReports !== '') {
+          var forms = JSON.parse(localStorage.formReports);
+
+          for (var i = 0, l = forms.length; i < l; i++) {
+            scope.createReport(forms[i]);
+          }
+        }
+      };
+
+      scope.reSaveFormReport = function(form) {
+        var forms;
+
+        if (localStorage.formReports === '') {
+          forms = [];
+        } else {
+          forms = JSON.parse(localStorage.formReports);
+        }
+
+        forms.push(form);
+
+        localStorage.formReports = JSON.stringify(forms);
+      };
+
+      scope.reDrawReports();
     }
   };
 });
