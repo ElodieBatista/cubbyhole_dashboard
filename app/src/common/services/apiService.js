@@ -79,6 +79,11 @@ module.factory('apiService', function(conf, $resource) {
         method: 'GET'
       }
     }),
+    PlansUsage: $resource(conf.epDbdApi + '/plans/usage', {}, {
+      'get': {
+        method: 'GET'
+      }
+    }),
 
     Years: $resource(conf.epDbdApi + '/plans/years', {}, {
       'get': {

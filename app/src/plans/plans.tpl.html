@@ -17,19 +17,21 @@
 
   <div class="col-md-3">
     <div class="stats-bloc stats-bloc-orange">
-      <p class="stats-title">Its Bandwidth Usage</p>
-      <p class="stats-nb">{{mostExpPlan.bandwidthUsage[11]}}%</p>
-      <img class="stats-img" src="styles/icons/icon_arrowdown.svg" />
-    </div>
-  </div>
-
-  <div class="col-md-3">
-    <div class="stats-bloc stats-bloc-black">
       <p class="stats-title">Its Shared Quota Usage</p>
       <p class="stats-nb">{{mostExpPlan.sharedQuotaUsage[11]}}%</p>
       <img class="stats-img" src="styles/icons/icon_link.svg" />
     </div>
   </div>
+
+  <div class="col-md-3">
+    <div class="stats-bloc stats-bloc-black">
+      <p class="stats-title">Its Global Usage</p>
+      <p class="stats-nb">{{mostExpPlan.globalUsage}}%</p>
+      <img class="stats-img" src="styles/icons/icon_arrowdown.svg" />
+    </div>
+  </div>
+
+
 </div>
 
 <div class="row row-horizontal-space">
@@ -38,19 +40,15 @@
   </div>
 
   <div class="col-md-6">
-    <line-chart class="chart-directive chart chart-border-orange" title-chart="'Bandwidth Usage/Plan'" data="dataChart2"></line-chart>
+      <line-chart class="chart-directive chart chart-border-orange" title-chart="'Shared Quota Usage/Plan'" data="dataChart3"></line-chart>
   </div>
 </div>
 
-<div class="row row-horizontal-space">
-  <div class="col-md-6">
-    <line-chart class="chart-directive chart chart-border-grey" title-chart="'Shared Quota Usage/Plan'" data="dataChart3"></line-chart>
-  </div>
-
+<!--div class="row row-horizontal-space">
   <div class="col-md-6">
     <line-chart class="chart-directive chart chart-border-black" title-chart="namePlanMostExp + ' Plan Usage'" data="dataChart4"></line-chart>
   </div>
-</div>
+</div-->
 
 <div class="row row-horizontal-space">
   <div class="col-md-3" ng-repeat="plan in dataChart5">

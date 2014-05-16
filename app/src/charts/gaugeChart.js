@@ -12,7 +12,7 @@ module.directive('gaugeChart', function(colorService) {
 
     link: function (scope, element, attrs) {
       scope.$watch('data', function(newValue, oldValue) {
-        if (scope.data) {
+        if (scope.data || scope.data === 0) {
           scope.draw();
         }
       });
