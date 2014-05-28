@@ -68,11 +68,11 @@ module.controller('ReportsCtrl',
       console.log(form);
 
       if (form.charttype === 'line') {
-        $scope.createChart(form.charttype, form.title, form.color, $scope.fakeAllusersFree2014);
+        $scope.createChart(form.charttype, form.title, form.color, form.id, $scope.fakeAllusersFree2014);
       } else if (form.charttype === 'pie') {
-        $scope.createChart(form.charttype, form.title, form.color, $scope.fakeAllusersEuropePerPlan);
+        $scope.createChart(form.charttype, form.title, form.color, form.id, $scope.fakeAllusersEuropePerPlan);
       } else if (form.charttype === 'column') {
-        $scope.createChart(form.charttype, form.title, form.color, {categories: $scope.locations, series: $scope.fakeAllusers2014PerLocation});
+        $scope.createChart(form.charttype, form.title, form.color, form.id, {categories: $scope.locations, series: $scope.fakeAllusers2014PerLocation});
       }
     };
   }

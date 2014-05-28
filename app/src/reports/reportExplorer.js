@@ -50,6 +50,7 @@ module.directive('reportExplorer', function(colorService, $compile) {
       };
 
       scope.reGenerateReport = function(form) {
+        form.id = 'chart' + Date.now();
         scope.reSaveFormReport(form);
         scope.createReport(form);
       };
@@ -69,9 +70,8 @@ module.directive('reportExplorer', function(colorService, $compile) {
         return radioVal === scope.modalform.metrics['metric' + metricIndex].prop;
       };
 
-      scope.createChart = function(type, title, color, data) {
+      scope.createChart = function(type, title, color, id, data) {
         var html = '';
-        var id = 'chart' + Date.now();
 
         if (scope.reports.count % 2 === 0 && !freePlace) {
           $('#reports-container').append($compile('<div class="row space-top-mini"><div id="' + id + '" class="col-md-6"><input type="checkbox" class="chart-btn" ng-checked="{true:\'itemActive\',false:\'\'}[itemActive === reports[\'' + id + '\']]" ng-click="toggleItem(reports[\'' + id + '\'])"></div></div>')(scope));
@@ -103,7 +103,7 @@ module.directive('reportExplorer', function(colorService, $compile) {
           dataToSave.name = title;
           scope.reports[id] = dataToSave;
 
-          html = '<pie-chart class="chart-directive chart clear" title-chart="\'' + title + '\'" subtitle="\'' + scope.modalform.metrics.metric1.prop + '\'" data="reports[\'' + id + '\']" style="border-top: 3px solid ' + color + '"></pie-chart>';
+          html = '<pie-chart class="chart-directive chart clear" title-chart="\'' + title + '\'" subtitle="\'' + title + '\'" data="reports[\'' + id + '\']" style="border-top: 3px solid ' + color + '"></pie-chart>';
         } else if (type === 'column') {
           data.series[0].color = color;
           data.id = id;
@@ -134,11 +134,27 @@ module.directive('reportExplorer', function(colorService, $compile) {
         }
 
         scope.reports.count--;
+
+        var forms = JSON.parse(localStorage.formReports);
+
+        if (forms.length > 1) {
+          var idToDelete;
+          for (var i = 0, l = forms.length; i < l; i++) {
+            if (forms[i].id === id) {
+              idToDelete = i;
+              break;
+            }
+          }
+          delete forms[idToDelete];
+          localStorage.formReports = JSON.stringify(forms);
+        } else {
+          localStorage.formReports = '';
+        }
       };
 
       scope.reDrawReports = function() {
-        if (localStorage.formReports !== '') {
-          var forms = JSON.parse(localStorage.formReports);
+        if (localStorage.getItem('formReports') !== '' && localStorage.getItem('formReports') !== null) {
+          var forms = JSON.parse(localStorage.getItem('formReports'));
 
           for (var i = 0, l = forms.length; i < l; i++) {
             scope.createReport(forms[i]);
@@ -149,10 +165,10 @@ module.directive('reportExplorer', function(colorService, $compile) {
       scope.reSaveFormReport = function(form) {
         var forms;
 
-        if (localStorage.formReports === '') {
+        if (localStorage.getItem('formReports') === '' || localStorage.getItem('formReports') === null) {
           forms = [];
         } else {
-          forms = JSON.parse(localStorage.formReports);
+          forms = JSON.parse(localStorage.getItem('formReports'));
         }
 
         forms.push(form);
