@@ -140,7 +140,7 @@ module.directive('reportExplorer', function(colorService, $compile) {
         if (forms.length > 1) {
           var idToDelete;
           for (var i = 0, l = forms.length; i < l; i++) {
-            if (forms[i].id === id) {
+            if (forms[i] !== null && forms[i].id === id) {
               idToDelete = i;
               break;
             }
@@ -157,7 +157,9 @@ module.directive('reportExplorer', function(colorService, $compile) {
           var forms = JSON.parse(localStorage.getItem('formReports'));
 
           for (var i = 0, l = forms.length; i < l; i++) {
-            scope.createReport(forms[i]);
+            if (forms[i] !== null) {
+              scope.createReport(forms[i]);
+            }
           }
         }
       };
