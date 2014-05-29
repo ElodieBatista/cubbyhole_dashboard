@@ -17,16 +17,16 @@
 
   <div class="col-md-3">
     <div class="stats-bloc stats-bloc-blue">
-      <p class="stats-title">Subscriptions Today</p>
-      <p class="stats-nb" ng-bind="subscriptionsToday"></p>
-      <img class="stats-img" src="styles/icons/icon_check.svg" />
+      <p class="stats-title">New Paying Users Today</p>
+      <p class="stats-nb" ng-bind="payingUsersToday"></p>
+      <img class="stats-img" src="styles/icons/icon_newpayingusers.svg" />
     </div>
   </div>
 
   <div class="col-md-3">
     <div class="stats-bloc stats-bloc-black">
-      <p class="stats-title">New Paying Users Today</p>
-      <p class="stats-nb" ng-bind="payingUsersToday"></p>
+      <p class="stats-title">Paying Plans</p>
+      <p class="stats-nb">{{payingPlans}}%</p>
       <img class="stats-img" src="styles/icons/icon_dollar.svg" />
     </div>
   </div>

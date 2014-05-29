@@ -120,6 +120,8 @@ module.controller('UsersCtrl',
       $scope.usersPerPlan = res.data;
       $scope.setDataChart2();
       $scope.setDataChart5();
+
+      $scope.payingPlans = ($scope.dataChart2[1].y * 100) / ($scope.dataChart2[0].y + $scope.dataChart2[1].y);
     });
 
     // #3
