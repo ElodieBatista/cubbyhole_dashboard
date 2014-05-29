@@ -38,7 +38,7 @@ module.controller('ReportsCtrl',
       $scope.locations = res.data;
     });
 
-    $scope.fakeAllusersFree2014 = [10, 35, 136, 166, 170, 230, 275, 355, 505, 713, 1063, 1095];
+    /*$scope.fakeAllusersFree2014 = [10, 35, 136, 166, 170, 230, 275, 355, 505, 713, 1063, 1095];
     $scope.fakeAllusersEuropePerPlan = [
       {
         name: 'Free',
@@ -62,18 +62,23 @@ module.controller('ReportsCtrl',
         name: 'Users',
         data: [10, 35, 136, 166, 170, 230]
       }
-    ];
+    ];*/
 
     $scope.createReport = function(form) {
       console.log(form);
 
-      if (form.charttype === 'line') {
+      apiService.Reports.get({metric1: form.metric1, metric2: form.metric2, metric3: form.metric3}, function(res) {
+        $scope.createChart(form.charttype, form.title, form.color, form.id, res.data);
+      });
+
+
+      /*if (form.charttype === 'line') {
         $scope.createChart(form.charttype, form.title, form.color, form.id, $scope.fakeAllusersFree2014);
       } else if (form.charttype === 'pie') {
         $scope.createChart(form.charttype, form.title, form.color, form.id, $scope.fakeAllusersEuropePerPlan);
       } else if (form.charttype === 'column') {
         $scope.createChart(form.charttype, form.title, form.color, form.id, {categories: $scope.locations, series: $scope.fakeAllusers2014PerLocation});
-      }
+      }*/
     };
   }
 );

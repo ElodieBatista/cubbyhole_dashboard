@@ -95,6 +95,12 @@ module.factory('apiService', function(conf, $resource) {
       'get': {
         method: 'GET'
       }
+    }),
+
+    Reports: $resource(conf.epDbdApi + '/dynamic/:metric1/:metric2/:metric3', {metric1:'@metric1', metric2:'@metric2', metric3:'@metric3'}, {
+      'get': {
+        method: 'GET'
+      }
     })
   };
 });
