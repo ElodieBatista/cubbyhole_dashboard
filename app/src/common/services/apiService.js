@@ -97,9 +97,14 @@ module.factory('apiService', function(conf, $resource) {
       }
     }),
 
-    Reports: $resource(conf.epDbdApi + '/dynamic/:metric1/:metric2/:metric3', {metric1:'@metric1', metric2:'@metric2', metric3:'@metric3'}, {
-      'get': {
-        method: 'GET'
+    Reports: $resource(conf.epDbdApi + '/dynamic', {}, {
+      'post': {
+        method: 'POST',
+        params: {
+          metric1: '@metric1',
+          metric2: '@metric2',
+          metric3: '@metric3'
+        }
       }
     })
   };
