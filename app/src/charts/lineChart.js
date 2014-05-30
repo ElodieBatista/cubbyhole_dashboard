@@ -33,7 +33,7 @@ module.directive('lineChart', function(chartService) {
             }
           },
           tooltip: {
-            valueSuffix: '%'
+            valueSuffix: scope.suffix ? '%' : ''
           },
           xAxis: {
             categories: chartService.getMonths()

@@ -38,7 +38,7 @@ module.controller('ReportsCtrl',
       $scope.locations = res.data;
     });
 
-    /*$scope.fakeAllusersFree2014 = [10, 35, 136, 166, 170, 230, 275, 355, 505, 713, 1063, 1095];
+    //$scope.fakeAllusersFree2014 = [10, 35, 136, 166, 170, 230, 275, 355, 505, 713, 1063, 1095];
     $scope.fakeAllusersEuropePerPlan = [
       {
         name: 'Free',
@@ -57,7 +57,7 @@ module.controller('ReportsCtrl',
         value: 61
       }
     ];
-    $scope.fakeAllusers2014PerLocation = [
+    /*$scope.fakeAllusers2014PerLocation = [
       {
         name: 'Users',
         data: [10, 35, 136, 166, 170, 230]
@@ -68,7 +68,7 @@ module.controller('ReportsCtrl',
       console.log(form);
 
       apiService.Reports.post({metric1: form.metrics.metric1, metric2: form.metrics.metric2, metric3: form.metrics.metric3}, function(res) {
-        $scope.createChart(form.charttype, form.title, form.color, form.id, res.data);
+        $scope.createChart(form.charttype, form.title, form.color, form.id, /*$scope.fakeAllusersEuropePerPlan*/res.data);
       });
 
 

@@ -2,7 +2,7 @@
 
 var module = angular.module('dashboardApp');
 
-module.directive('reportExplorer', function(colorService, $compile) {
+module.directive('reportExplorer', function(colorService, chartService, $compile) {
   return {
     restrict: 'A',
 
@@ -81,12 +81,24 @@ module.directive('reportExplorer', function(colorService, $compile) {
 
 
         if (type === 'line') {
+          var series = new Array(12);
+          var currMonth = new Date().getMonth();
+          var count = 1;
+
+          for (var i = 0, l = 12; i < l; i++) {
+            if (currMonth + count > 11) {
+              count = -currMonth;
+            }
+            series[i] = data[currMonth + count].value;
+            count++;
+          }
+
           scope.reports[id] = [{
             id: id,
             name: title,
             type: type,
             color: Highcharts.Color(color).get(),
-            data: data
+            data: series
           }];
           html = '<line-chart class="chart-directive chart clear" title-chart="\'' + title + '\'" data="reports[\'' + id + '\']" style="border-top: 3px solid ' + color + '"></line-chart>';
         } else if (type === 'pie') {
@@ -105,13 +117,35 @@ module.directive('reportExplorer', function(colorService, $compile) {
 
           html = '<pie-chart class="chart-directive chart clear" title-chart="\'' + title + '\'" subtitle="\'' + title + '\'" data="reports[\'' + id + '\']" style="border-top: 3px solid ' + color + '"></pie-chart>';
         } else if (type === 'column') {
-          data.series[0].color = color;
-          data.id = id;
-          data.name = title;
-          data.type = type;
-          scope.reports[id] = data;
+          scope.reports[id] = {};
+          var categories = [];
+          var series = [{name: title, data: [], color: color}];
 
-          html = '<column-chart class="chart-directive chart clear" title-chart="\'' + title + '\'" data="reports[\'' + id + '\']" style="border-top: 3px solid ' + color + '"></column-chart>';
+          if (data[0].name === 'January') {
+            var currMonth = new Date().getMonth();
+            var count = 1;
+
+            categories = chartService.getMonths();
+            series[0].data = new Array(12);
+            for (var i = 0, l = 12; i < l; i++) {
+              if (currMonth + count > 11) {
+                count = -currMonth;
+              }
+              series[0].data[i] = data[currMonth + count].value;
+              count++;
+            }
+          } else {
+            for (var prop in data) {
+              categories.push(data[prop].name);
+              series[0].data.push(data[prop].value);
+            }
+          }
+
+          scope.reports[id].categories = categories;
+          scope.reports[id].series = series;
+          scope.reports[id].id = id;
+
+          html = '<column-chart class="chart-directive chart clear" title-chart="\'' + title + '\'" suffix="false" data="reports[\'' + id + '\']" style="border-top: 3px solid ' + color + '"></column-chart>';
         }
 
         var chart = $compile(html)(scope);
