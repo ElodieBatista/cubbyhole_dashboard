@@ -92,7 +92,7 @@
       <div class="col-xs-6 no-padding">
         <div class="input-prepend" ng-class="{'input-prepend-active': focused3, 'disabled': !modalOpts.isRadioDisabled('location', '2')}">
           <i class="fa input-icon fa-map-marker"></i>
-          <select ng-disabled="!modalOpts.isRadioDisabled('location', '2')" ng-model="modalform.metrics.metric2.filter" ng-options="l for l in modalOpts.locations" ng-init="focused3 = false" ng-focus="focused3 = true" ng-blur="focused3 = false" required>
+          <select ng-disabled="!modalOpts.isRadioDisabled('location', '2')" ng-model="modalform.metrics.metric2.filter" ng-options="k as v for (k, v) in modalOpts.locations" ng-init="focused3 = false" ng-focus="focused3 = true" ng-blur="focused3 = false" required>
             <option class="option-default" value=""></option>
           </select>
         </div>
