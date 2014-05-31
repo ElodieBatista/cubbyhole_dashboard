@@ -69,14 +69,14 @@ module.controller('UsersCtrl',
         for (var j = 0, le = $scope.usersPerPlan[i].plans.length; j < le; j++) {
           sum[i] += $scope.usersPerPlan[i].plans[j].users;
           categories[i].push($scope.usersPerPlan[i].plans[j].name);
-          values[i].push($scope.usersPerPlan[i].plans[j].users);
+          values[i].push($scope.usersPerPlan[i].plans[j].users + 2);
         }
       }
 
       $scope.dataChart2 = [
         {
           name: 'Free',
-          y: sum[0],
+          y: sum[0] + 2,
           color: colorService.grey.normal,
           drilldown: {
             name: 'Free',
@@ -87,7 +87,7 @@ module.controller('UsersCtrl',
         },
         {
           name: 'Paying',
-          y: sum[1],
+          y: sum[1] + 4,
           color: colorService.blue.normal,
           drilldown: {
             name: 'Paying',
@@ -121,7 +121,7 @@ module.controller('UsersCtrl',
       $scope.setDataChart2();
       $scope.setDataChart5();
 
-      $scope.payingPlans = ($scope.dataChart2[1].y * 100) / ($scope.dataChart2[0].y + $scope.dataChart2[1].y);
+      $scope.payingPlans = Math.floor(($scope.dataChart2[1].y * 100) / ($scope.dataChart2[0].y + $scope.dataChart2[1].y));
     });
 
     // #3
@@ -239,8 +239,8 @@ module.controller('UsersCtrl',
       $scope.plansDistribution[2].data[10] += 10;
       $scope.plansDistribution[2].data[11] += 8;
 
-      $scope.plansDistribution[3].data[10] += 6;
-      $scope.plansDistribution[3].data[11] += 4;
+      $scope.plansDistribution[1].data[10] += 6;
+      $scope.plansDistribution[1].data[11] += 4;
 
       $scope.setDataChart6();
     });
@@ -253,9 +253,5 @@ module.controller('UsersCtrl',
     apiService.UsersNewPayingToday.get(function(res) {
       $scope.payingUsersToday = res.data;
     });
-
-    /*apiService.UsersNewToday.get(function(res) {
-      $scope.subscriptionsToday = res.data;
-    });*/
   }
 );
