@@ -154,7 +154,7 @@ module.directive('reportExplorer', function(colorService, chartService, $compile
 
         scope.reports.count--;
 
-        var forms = JSON.parse(localStorage.formReports);
+        var forms = JSON.parse(localStorage.getItem('cubbyhole-dashboardApp-formReports'));
 
         if (forms.length > 1) {
           var idToDelete;
@@ -165,15 +165,15 @@ module.directive('reportExplorer', function(colorService, chartService, $compile
             }
           }
           delete forms[idToDelete];
-          localStorage.formReports = JSON.stringify(forms);
+          localStorage.setItem('cubbyhole-dashboardApp-formReports', JSON.stringify(forms));
         } else {
-          localStorage.formReports = '';
+          localStorage.setItem('cubbyhole-dashboardApp-formReports', '');
         }
       };
 
       scope.reDrawReports = function() {
-        if (localStorage.getItem('formReports') !== '' && localStorage.getItem('formReports') !== null) {
-          var forms = JSON.parse(localStorage.getItem('formReports'));
+        if (localStorage.getItem('cubbyhole-dashboardApp-formReports') !== '' && localStorage.getItem('cubbyhole-dashboardApp-formReports') !== null) {
+          var forms = JSON.parse(localStorage.getItem('cubbyhole-dashboardApp-formReports'));
 
           for (var i = 0, l = forms.length; i < l; i++) {
             if (forms[i] !== null) {
@@ -186,15 +186,15 @@ module.directive('reportExplorer', function(colorService, chartService, $compile
       scope.reSaveFormReport = function(form) {
         var forms;
 
-        if (localStorage.getItem('formReports') === '' || localStorage.getItem('formReports') === null) {
+        if (localStorage.getItem('cubbyhole-dashboardApp-formReports') === '' || localStorage.getItem('cubbyhole-dashboardApp-formReports') === null) {
           forms = [];
         } else {
-          forms = JSON.parse(localStorage.getItem('formReports'));
+          forms = JSON.parse(localStorage.getItem('cubbyhole-dashboardApp-formReports'));
         }
 
         forms.push(form);
 
-        localStorage.formReports = JSON.stringify(forms);
+        localStorage.setItem('cubbyhole-dashboardApp-formReports', JSON.stringify(forms));
       };
 
       scope.reDrawReports();

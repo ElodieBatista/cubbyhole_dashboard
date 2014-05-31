@@ -16,6 +16,7 @@ module.controller('LogoutCtrl',
     delete $http.defaults.headers.common['X-Cub-AuthToken'];
     localStorage.removeItem('cubbyhole-dashboardApp-token');
     localStorage.removeItem('cubbyhole-dashboardApp-profile');
+    localStorage.removeItem('cubbyhole-dashboardApp-formReports');
     $rootScope.profile = null;
     $location.path('/login');
   }
