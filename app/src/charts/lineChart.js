@@ -36,7 +36,7 @@ module.directive('lineChart', function(chartService) {
             valueSuffix: scope.suffix ? '%' : ''
           },
           xAxis: {
-            categories: chartService.getMonths()
+            categories: scope.inorder ? chartService.getMonthsInOrder() : chartService.getMonths()
           },
           yAxis: {
             min: 0,

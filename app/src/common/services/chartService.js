@@ -9,6 +9,10 @@ module.factory('chartService', function() {
     getMonths: function() {
       var monthIndex = new Date().getMonth();
       return (months.slice(monthIndex + 1)).concat(months.slice(0, monthIndex + 1));
+    },
+
+    getMonthsInOrder: function() {
+      return months;
     }
   };
 });

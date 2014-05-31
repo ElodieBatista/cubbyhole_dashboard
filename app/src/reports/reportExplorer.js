@@ -81,16 +81,9 @@ module.directive('reportExplorer', function(colorService, chartService, $compile
 
 
         if (type === 'line') {
-          var series = new Array(12);
-          var currMonth = new Date().getMonth();
-          var count = 1;
-
-          for (var i = 0, l = 12; i < l; i++) {
-            if (currMonth + count > 11) {
-              count = -currMonth;
-            }
-            series[i] = data[currMonth + count].value;
-            count++;
+          var series = [];
+          for (var i = 0, l = data.length; i < l; i++) {
+            series[i] = data[i].value;
           }
 
           scope.reports[id] = [{
@@ -100,7 +93,7 @@ module.directive('reportExplorer', function(colorService, chartService, $compile
             color: Highcharts.Color(color).get(),
             data: series
           }];
-          html = '<line-chart class="chart-directive chart clear" title-chart="\'' + title + '\'" data="reports[\'' + id + '\']" style="border-top: 3px solid ' + color + '"></line-chart>';
+          html = '<line-chart class="chart-directive chart clear" title-chart="\'' + title + '\'" inorder="true" data="reports[\'' + id + '\']" style="border-top: 3px solid ' + color + '"></line-chart>';
         } else if (type === 'pie') {
           var dataToSave = [];
           for (var i = 0, l = data.length; i < l; i++) {
@@ -122,17 +115,9 @@ module.directive('reportExplorer', function(colorService, chartService, $compile
           var series = [{name: title, data: [], color: color}];
 
           if (data[0].name === 'January') {
-            var currMonth = new Date().getMonth();
-            var count = 1;
-
-            categories = chartService.getMonths();
-            series[0].data = new Array(12);
-            for (var i = 0, l = 12; i < l; i++) {
-              if (currMonth + count > 11) {
-                count = -currMonth;
-              }
-              series[0].data[i] = data[currMonth + count].value;
-              count++;
+            categories = chartService.getMonthsInOrder();
+            for (var i = 0, l = data.length; i < l; i++) {
+              series[0].data.push(data[i].value);
             }
           } else {
             for (var prop in data) {
