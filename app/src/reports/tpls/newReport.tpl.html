@@ -42,7 +42,6 @@
         <div class="input-prepend" ng-class="{'input-prepend-active': focused1, 'disabled': !modalOpts.isRadioDisabled('plans', '1')}">
           <i class="fa input-icon fa-th"></i>
           <select ng-disabled="!modalOpts.isRadioDisabled('plans', '1')" ng-model="modalform.metrics.metric1.filter" ng-init="focused1 = false" ng-focus="focused1 = true" ng-blur="focused1 = false" required>
-            <option value="all">All</option>
             <option value="storage">Storage</option>
             <option value="shared quota">Shared Quota</option>
           </select>
