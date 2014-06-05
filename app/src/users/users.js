@@ -69,14 +69,14 @@ module.controller('UsersCtrl',
         for (var j = 0, le = $scope.usersPerPlan[i].plans.length; j < le; j++) {
           sum[i] += $scope.usersPerPlan[i].plans[j].users;
           categories[i].push($scope.usersPerPlan[i].plans[j].name);
-          values[i].push($scope.usersPerPlan[i].plans[j].users + 2);
+          values[i].push($scope.usersPerPlan[i].plans[j].users);
         }
       }
 
       $scope.dataChart2 = [
         {
           name: 'Free',
-          y: sum[0] + 2,
+          y: sum[0],
           color: colorService.grey.normal,
           drilldown: {
             name: 'Free',
@@ -87,7 +87,7 @@ module.controller('UsersCtrl',
         },
         {
           name: 'Paying',
-          y: sum[1] + 4,
+          y: sum[1],
           color: colorService.blue.normal,
           drilldown: {
             name: 'Paying',
@@ -103,12 +103,12 @@ module.controller('UsersCtrl',
       $scope.dataChart5 = [
         {
           name: $scope.usersPerPlan[0].name,
-          y: $scope.usersPerPlan[0].users + 10, // TEMP: raise values
+          y: $scope.usersPerPlan[0].users,
           color: Highcharts.Color(colorService.grey.normal).brighten(0.10).get()
         },
         {
           name: $scope.usersPerPlan[1].name,
-          y: $scope.usersPerPlan[1].users + 10, // TEMP: raise values
+          y: $scope.usersPerPlan[1].users,
           color: colorService.red.normal,
           sliced: true,
           selected: true
@@ -129,29 +129,29 @@ module.controller('UsersCtrl',
       $scope.dataChart3 = [
         {
           name: $scope.delays[0].name,
-          y: $scope.delays[0].value + 5, // TEMP: raise value
+          y: $scope.delays[0].value,
           color: colorService.red.normal,
           sliced: true,
           selected: true
         },
         {
           name: $scope.delays[1].name,
-          y: $scope.delays[1].value + 10, // TEMP: raise values
+          y: $scope.delays[1].value,
           color: Highcharts.Color(colorService.red.normal).brighten(0.10).get()
         },
         {
           name: $scope.delays[2].name,
-          y: $scope.delays[2].value + 19, // TEMP: raise values
+          y: $scope.delays[2].value,
           color: Highcharts.Color(colorService.red.normal).brighten(0.20).get()
         },
         {
           name: $scope.delays[3].name,
-          y: $scope.delays[3].value + 23, // TEMP: raise values
+          y: $scope.delays[3].value,
           color: colorService.grey.normal
         },
         {
           name: $scope.delays[4].name,
-          y: $scope.delays[4].value + 2, // TEMP: raise values
+          y: $scope.delays[4].value,
           color: Highcharts.Color(colorService.grey.normal).brighten(0.15).get()
         }
       ];
@@ -163,7 +163,7 @@ module.controller('UsersCtrl',
     });
 
     // #4
-    $scope.nbSubscriptions = [100, 135, 136, 166, 170, 230, 275, 155, 405, 513, 763, 1005];
+    //$scope.nbSubscriptions = [100, 135, 136, 166, 170, 230, 275, 155, 405, 513, 763, 1005];
     $scope.isDataChart4Ready = function() {
       return $scope.newFreeUsers && $scope.newPayingUsers && $scope.nbSubscriptions;
     };
@@ -198,10 +198,6 @@ module.controller('UsersCtrl',
     apiService.UsersNewFree.get(function(res) {
       $scope.newFreeUsers = res.data;
 
-      // TEMP
-      $scope.newFreeUsers[10] += 50;
-      $scope.newFreeUsers[11] += 150;
-
       if ($scope.isDataChart4Ready()) {
         $scope.setDataChart4();
       }
@@ -209,10 +205,6 @@ module.controller('UsersCtrl',
 
     apiService.UsersNewPaying.get(function(res) {
       $scope.newPayingUsers = res.data;
-
-      // TEMP
-      $scope.newPayingUsers[10] += 40;
-      $scope.newPayingUsers[11] += 180;
 
       if ($scope.isDataChart4Ready()) {
         $scope.setDataChart4();
@@ -234,13 +226,6 @@ module.controller('UsersCtrl',
 
     apiService.PlansDistribution.get(function(res) {
       $scope.plansDistribution = res.data;
-
-      // TEMP
-      $scope.plansDistribution[2].data[10] += 10;
-      $scope.plansDistribution[2].data[11] += 8;
-
-      $scope.plansDistribution[1].data[10] += 6;
-      $scope.plansDistribution[1].data[11] += 4;
 
       $scope.setDataChart6();
     });

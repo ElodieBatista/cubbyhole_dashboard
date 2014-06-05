@@ -68,7 +68,7 @@ module.controller('ReportsCtrl',
       console.log(form);
 
       apiService.Reports.post({metric1: form.metrics.metric1, metric2: form.metrics.metric2, metric3: form.metrics.metric3}, function(res) {
-        $scope.createChart(form.charttype, form.title, form.color, form.id, /*$scope.fakeAllusersEuropePerPlan*/res.data);
+        $scope.createChart(form.charttype, form.title, form.color, form.id, /*$scope.fakeAllusersEuropePerPlan*/res);
       });
 
 

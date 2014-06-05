@@ -53,11 +53,6 @@ module.directive('mapChart', function(colorService) {
 
 
       scope.draw = function() {
-        for (var i = 0, l = scope.data.length; i < l; i++) {
-          // TEMP: raise values
-          scope.data[i].value += Math.floor((Math.random() * 50) + 1);
-        }
-
         var max = scope.data[0].value, sum = 0;
         for (var i = 0, l = scope.data.length; i < l; i++) {
           if (scope.data[i].value > max) {
