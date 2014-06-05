@@ -7,7 +7,8 @@ module.directive('lineChart', function(chartService) {
     restrict: 'E',
     scope: {
       titleChart: '=',
-      data: '='
+      data: '=',
+      inorder: '='
     },
 
     link: function (scope, element, attrs) {
