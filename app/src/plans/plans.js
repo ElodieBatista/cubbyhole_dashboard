@@ -16,32 +16,6 @@ module.controller('PlansCtrl',
   function PlansCtrl($scope, colorService, apiService) {
     apiService.PlansUsage.get(function(res) {
       $scope.plansUsage = res.data;
-
-      // TEMP: fake data
-      /*$scope.plansUsage = [
-        {
-          name: 'Free',
-          isFree: true,
-          isMostExpensive: false,
-          storageUsage: [7, 6, 9, 14, 18, 21, 25, 26, 23, 18, 13, 9],
-          sharedQuotaUsage: [7, 6, 9, 14, 18, 21, 25, 26, 23, 18, 13, 9]
-        },
-        {
-          name: 'Pro',
-          isFree: false,
-          isMostExpensive: false,
-          storageUsage: [0, 3, 7, 11, 17, 22, 24, 24, 20, 14, 8, 2],
-          sharedQuotaUsage: [0, 3, 7, 11, 17, 22, 24, 24, 20, 14, 8, 2]
-        },
-        {
-          name: 'Business',
-          isFree: false,
-          isMostExpensive: true,
-          storageUsage: [9, 2, 7, 5, 19, 12, 17, 6, 14, 10, 6, 8],
-          sharedQuotaUsage: [12, 28, 35, 54, 39, 19, 127, 24, 4, 100, 86, 42]
-        }
-      ];*/
-
       $scope.setDataCharts();
     });
 

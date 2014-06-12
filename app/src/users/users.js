@@ -162,55 +162,6 @@ module.controller('UsersCtrl',
       $scope.setDataChart3();
     });
 
-    // #4
-    //$scope.nbSubscriptions = [100, 135, 136, 166, 170, 230, 275, 155, 405, 513, 763, 1005];
-    $scope.isDataChart4Ready = function() {
-      return $scope.newFreeUsers && $scope.newPayingUsers && $scope.nbSubscriptions;
-    };
-
-    $scope.setDataChart4 = function() {
-      $scope.dataChart4 = {
-        columns: [
-          {
-            type: 'column',
-            name: 'Free',
-            color: colorService.black.normal,
-            data: $scope.newFreeUsers
-          },
-          {
-            type: 'column',
-            name: 'Paying',
-            color: colorService.blue.normal,
-            data: $scope.newPayingUsers
-          }
-        ],
-        lines: [
-          {
-            type: 'spline',
-            name: 'Total Nb of Subscriptions',
-            color: colorService.blue.normal,
-            data: $scope.nbSubscriptions
-          }
-        ]
-      };
-    };
-
-    apiService.UsersNewFree.get(function(res) {
-      $scope.newFreeUsers = res.data;
-
-      if ($scope.isDataChart4Ready()) {
-        $scope.setDataChart4();
-      }
-    });
-
-    apiService.UsersNewPaying.get(function(res) {
-      $scope.newPayingUsers = res.data;
-
-      if ($scope.isDataChart4Ready()) {
-        $scope.setDataChart4();
-      }
-    });
-
     // #6
     $scope.setDataChart6 = function() {
       $scope.dataChart6 = [];
