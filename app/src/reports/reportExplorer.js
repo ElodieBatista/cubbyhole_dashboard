@@ -74,7 +74,7 @@ module.directive('reportExplorer', function(colorService, chartService, $compile
         var data = res.data;
         var html = '';
         var currMonth = new Date().getMonth();
-        var currYear = new Date().getYear();
+        var currYear = new Date().getFullYear();
 
         if (scope.reports.count % 2 === 0 && !freePlace) {
           $('#reports-container').append($compile('<div class="row space-top-mini"><div id="' + id + '" class="col-md-6"><input type="checkbox" class="chart-btn" ng-checked="{true:\'itemActive\',false:\'\'}[itemActive === reports[\'' + id + '\']]" ng-click="toggleItem(reports[\'' + id + '\'])"></div></div>')(scope));
@@ -85,7 +85,7 @@ module.directive('reportExplorer', function(colorService, chartService, $compile
         if (type === 'line') {
           var series = [];
           for (var i = 0, l = data.length; i < l; i++) {
-            if (currYear === res.year && i <= currMonth) {
+            if (currYear === res.year && i <= currMonth || currYear > res.year) {
               series[i] = data[i].value;
             } else {
               series[i] = null;
