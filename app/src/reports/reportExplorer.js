@@ -123,7 +123,7 @@ module.directive('reportExplorer', function(colorService, chartService, $compile
           if (data[0].name === 'January') {
             categories = chartService.getMonthsInOrder();
             for (var i = 0, l = data.length; i < l; i++) {
-              if (currYear === res.year && i <= currMonth) {
+              if (currYear === res.year && i <= currMonth || currYear > res.year) {
                 series[0].data.push(data[i].value);
               } else {
                 series[0].data.push(null);
