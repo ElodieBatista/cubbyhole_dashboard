@@ -22,7 +22,7 @@ html, body {
 }
 
 body {
-  font-family: "OpenSans-Light", Helvetica, Arial, sans-serif;
+  font-family: "OpenSans-Regular", Helvetica, Arial, sans-serif;
   font-size: 14px;
   padding-top: 80px;
 }
@@ -32,7 +32,7 @@ a {
 }
 
 h1, h2, h3, h4, h5, h6 {
-  font-family: "OpenSans-Light", Helvetica, Arial, sans-serif;
+  font-family: "OpenSans-Regular", Helvetica, Arial, sans-serif;
   font-weight: normal;
 }
 
@@ -41,6 +41,7 @@ h1 {
   font-size: 40px;
   text-transform: uppercase;
   text-align: center;
+  font-family: "OpenSans-Light", Helvetica, Arial, sans-serif;
 }
 
 h2 {
@@ -218,7 +219,7 @@ input[type="file"] {
 .primary .pagination li:not(.disabled):not(.active) a    { color: rgb(255, 29, 37);    }
 .secondary .pagination li:not(.disabled):not(.active) a  { color: rgb(63, 169, 245);   }
 .tertiary .pagination li:not(.disabled):not(.active) a   { color: rgb(255, 147, 30);   }
-.quaternary .pagination li:not(.disabled):not(.active) a { color: rgb(122, 201, 67);   }
+.quaternary .pagination li:not(.disabled):not(.active) a { color: rgb(97, 169, 48);   }
 .quinary .pagination li:not(.disabled):not(.active) a    { color: rgb(255, 108, 164);  }
 
 .pagination .active a,
@@ -269,7 +270,7 @@ input[type="file"] {
 
 .quaternary .modal-label {
   font-size: 16px;
-  color: rgb(122, 201, 67);
+  color: rgb(97, 169, 48);
 }
 
 
@@ -278,7 +279,7 @@ input[type="file"] {
   text-transform: uppercase;
   color: rgb(0, 0, 0);
   background-color: rgb(255, 255, 255);
-  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.3);
   border: none;
 }
 
@@ -333,7 +334,7 @@ input[type="file"] {
 .navtop-items-list .active:nth-child(1) > a { color: rgb(255, 29, 37) !important;   }
 .navtop-items-list .active:nth-child(2) > a { color: rgb(63, 169, 245) !important;  }
 .navtop-items-list .active:nth-child(3) > a { color: rgb(255, 147, 30) !important;  }
-.navtop-items-list .active:nth-child(4) > a { color: rgb(122, 201, 67) !important;  }
+.navtop-items-list .active:nth-child(4) > a { color: rgb(97, 169, 48) !important;  }
 .navtop-items-list .active:nth-child(5) > a { color: rgb(255, 108, 164) !important; }
 
 .navtop-item:hover {
@@ -374,7 +375,7 @@ input[type="file"] {
 .navtop-items-list .navtop-item:nth-child(1) .dropdown-menu a:hover { background-color: rgb(255, 29, 37);   }
 .navtop-items-list .navtop-item:nth-child(2) .dropdown-menu a:hover { background-color: rgb(63, 169, 245);  }
 .navtop-items-list .navtop-item:nth-child(3) .dropdown-menu a:hover { background-color: rgb(255, 147, 30);  }
-.navtop-items-list .navtop-item:nth-child(4) .dropdown-menu a:hover { background-color: rgb(122, 201, 67);  }
+.navtop-items-list .navtop-item:nth-child(4) .dropdown-menu a:hover { background-color: rgb(97, 169, 48);  }
 .navtop-items-list .navtop-item:nth-child(5) .dropdown-menu a:hover { background-color: rgb(255, 108, 164); }
 
 .navtop-items-list .navtop-item:nth-child(1),
@@ -403,10 +404,10 @@ input[type="file"] {
 
 .navtop-items-list .navtop-item:nth-child(4),
 .navtop-items-list .navtop-item:nth-child(4).open > a {
-  background-image: -webkit-linear-gradient(rgb(122, 201, 67), rgb(122, 201, 67));
-  background-image: -moz-linear-gradient(rgb(122, 201, 67), rgb(122, 201, 67));
-  background-image: -o-linear-gradient(rgb(122, 201, 67), rgb(122, 201, 67));
-  background-image: -ms-linear-gradient(rgb(122, 201, 67), rgb(122, 201, 67));
+  background-image: -webkit-linear-gradient(rgb(97, 169, 48), rgb(97, 169, 48));
+  background-image: -moz-linear-gradient(rgb(97, 169, 48), rgb(97, 169, 48));
+  background-image: -o-linear-gradient(rgb(97, 169, 48), rgb(97, 169, 48));
+  background-image: -ms-linear-gradient(rgb(97, 169, 48), rgb(97, 169, 48));
 }
 
 .navtop-items-list .navtop-item:nth-child(5),
@@ -424,7 +425,7 @@ input[type="file"] {
   display: block;
   width: 100%;
   padding-bottom: 65px;
-  background-color: rgb(240, 240, 240);
+  background-color: rgb(220, 220, 220);
 }
 
 .content-container:nth-child(2) {
@@ -463,7 +464,7 @@ input[type="file"] {
 .primary .nav-tabs    { border-color: rgb(255, 29, 37);   }
 .secondary .nav-tabs  { border-color: rgb(63, 169, 245);  }
 .tertiary .nav-tabs   { border-color: rgb(255, 147, 30);  }
-.quaternary .nav-tabs { border-color: rgb(122, 201, 67);  }
+.quaternary .nav-tabs { border-color: rgb(97, 169, 48);  }
 .quinary .nav-tabs    { border-color: rgb(255, 108, 164); }
 
 .primary .sign-nav-item {
@@ -504,7 +505,7 @@ input[type="file"] {
 .primary .nav-tabs .active a    { color: rgb(255, 29, 37) !important;   }
 .secondary .nav-tabs .active a  { color: rgb(63, 169, 245) !important;  }
 .tertiary .nav-tabs .active a   { color: rgb(255, 147, 30) !important;  }
-.quaternary .nav-tabs .active a { color: rgb(122, 201, 67) !important;  }
+.quaternary .nav-tabs .active a { color: rgb(97, 169, 48) !important;  }
 .quinary .nav-tabs .active a    { color: rgb(255, 108, 164) !important; }
 
 .sign-nav-item {
@@ -660,7 +661,7 @@ footer {
 .quaternary-btn:hover,
 .quaternary-btn:focus,
 .quaternary-btn:active {
-  background-color: rgb(122, 201, 67);
+  background-color: rgb(97, 169, 48);
 }
 
 .quinary-btn:hover,
@@ -672,7 +673,7 @@ footer {
 .primary .input-prepend-active    { border-color: rgb(255, 29, 37);    }
 .secondary .input-prepend-active  { border-color: rgb(63, 169, 245);   }
 .tertiary .input-prepend-active   { border-color: rgb(255, 147, 30);   }
-.quaternary .input-prepend-active { border-color: rgb(122, 201, 67);   }
+.quaternary .input-prepend-active { border-color: rgb(97, 169, 48);   }
 .quinary .input-prepend-active    { border-color: rgb(255, 108, 164);  }
 
 .option-default {
@@ -708,7 +709,7 @@ thead {
 .primary thead     { color: rgb(255, 29, 37);    }
 .secondary thead   { color: rgb(63, 169, 245);   }
 .tertiary thead    { color: rgb(255, 147, 30);   }
-.quaternary thead  { color: rgb(122, 201, 67);   }
+.quaternary thead  { color: rgb(97, 169, 48);   }
 .quinary thead     { color: rgb(255, 108, 164);  }
 
 th {
@@ -739,7 +740,7 @@ td:first-child span {
 .primary td:first-child     { color: rgb(255, 29, 37);    }
 .secondary td:first-child   { color: rgb(63, 169, 245);   }
 .tertiary td:first-child    { color: rgb(255, 147, 30);   }
-.quaternary td:first-child  { color: rgb(122, 201, 67);   }
+.quaternary td:first-child  { color: rgb(97, 169, 48);   }
 .quinary td:first-child     { color: rgb(255, 108, 164);  }
 
 .primary tbody tr:not(.itemActive):hover td     { background-color: rgba(254, 80, 81, 0.1);   }
@@ -783,7 +784,7 @@ td:first-child span:hover {
 
 .quaternary .highlight,
 .quaternary .subtitle {
-  color: rgb(122, 201, 67);
+  color: rgb(97, 169, 48);
 }
 
 .quinary .highlight,
@@ -799,7 +800,7 @@ td:first-child span:hover {
   margin: 10px auto;
   padding: 0;
   text-align: center;
-  background-color: rgb(240, 240, 240);
+  background-color: rgb(220, 220, 220);
 }
 
 .action-bar-left {
@@ -839,7 +840,7 @@ td:first-child span:hover {
 .primary .action-bar-item:hover     { background-color: rgb(255, 29, 37);   }
 .secondary .action-bar-item:hover   { background-color: rgb(63, 169, 245);  }
 .tertiary .action-bar-item:hover    { background-color: rgb(255, 147, 30);  }
-.quaternary .action-bar-item:hover  { background-color: rgb(122, 201, 67);  }
+.quaternary .action-bar-item:hover  { background-color: rgb(97, 169, 48);  }
 .quinary .action-bar-item:hover     { background-color: rgb(255, 108, 164); }
 
 .action-bar-item:hover .action-bar-icon svg path,

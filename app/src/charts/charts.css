@@ -1,14 +1,14 @@
 body {
-  background-color: rgb(240, 240, 240);
+  background-color: rgb(220, 220, 220);
 }
 
 tspan {
-  font-family: "OpenSans-Light", Helvetica, Arial, sans-serif;
+  font-family: "OpenSans-Regular", Helvetica, Arial, sans-serif;
 }
 
 .chart-directive {
   display: block;
-  border: 1px solid rgb(210, 210, 210);
+  border: 1px solid rgb(190, 190, 190);
   background-color: rgb(255, 255, 255);
 }
 
@@ -38,7 +38,7 @@ tspan {
 }
 
 .chart-border-red     { border-top: 3px solid rgb(255, 29, 37);     }
-.chart-border-green   { border-top: 3px solid rgb(122, 201, 67);    }
+.chart-border-green   { border-top: 3px solid rgb(97, 169, 48);    }
 .chart-border-blue    {  border-top: 3px solid rgb(63, 169, 245);   }
 .chart-border-orange  {  border-top: 3px solid rgb(255, 147, 30);   }
 .chart-border-grey    {  border-top: 3px solid rgb(150, 150, 150);  }
@@ -74,11 +74,11 @@ tspan {
 }
 
 .stats-bloc-red     {   background-color: rgb(255, 29, 37);   }
-.stats-bloc-grey    {   background-color: rgb(200, 200, 200); }
+.stats-bloc-grey    {   background-color: rgb(180, 180, 180); }
 .stats-bloc-blue    {   background-color: rgb(63, 169, 245);  }
 .stats-bloc-black   {   background-color: rgb(50, 50, 50);    }
 .stats-bloc-orange  {   background-color: rgb(255, 147, 30);  }
-.stats-bloc-green   {   background-color: rgb(122, 201, 67);  }
+.stats-bloc-green   {   background-color: rgb(97, 169, 48);  }
 
 .chart-btn {
   position: relative;
