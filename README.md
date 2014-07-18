@@ -14,7 +14,6 @@ Launch browser at
 Credentials:
 
 	cubbyholeadm@gmail.com
-	Supinf0cubbyhole
 
 # Changing IP Addresses
 
